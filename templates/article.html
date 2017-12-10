@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Sofiart Продукт</li>
+{% endblock %}
+
+
+{% block content %}
+      <a href="/list_article/">До переліку продуктів</a>
+      <div>
+        {{ article.name }}
+      </div>
+      <div>
+        {{ article.description }}
+      </div>
+      <div>
+        {{ article.text }}
+      </div>
+      <div>
+        {% if article.image %}
+            {{ article.image }}
+        {% endif %}
+      </div>
+      <div>
+        {% if article.image %}
+        <img src="{{ MEDIA_URL }}{{ article.image }}">
+        {% endif %}
+      </div>
+{% endblock %}

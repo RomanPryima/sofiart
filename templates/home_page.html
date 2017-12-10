@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Продукти</title>
-  </head>
-  <body>
-    <h1>Продукти</h1>
+{% extends 'base.html' %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Sofiart</li>
+{% endblock %}
 
-    {% for article in articles %}
-      {{ article.name }} <br>
-    {% endfor %}
 
-  </body>
-</html>
+{% block content %}
+      <h1>Стартова сторінка</h1>
+      <a href="/list_article/">Список статей</a>
+{% endblock %}

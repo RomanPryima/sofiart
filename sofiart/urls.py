@@ -20,5 +20,7 @@ from catalogue import views
 
 urlpatterns = [
     url(r'^$', views.home_page, name='home'),
+    url(r'^list_article/$', views.list_article, name='list_article'),
+    url(r'^article/(?P<slug>[-\w]+)/$', views.article, name='article'),
     url(r'^admin/', admin.site.urls),
 ]

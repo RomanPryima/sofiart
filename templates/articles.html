@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Sofiart Продукти</li>
+{% endblock %}
+
+
+{% block content %}
+    <table class="table">
+      <thead class="thead-inverse">
+        <a href="/">На головну</a>
+        <tr>
+          <th>Продукт</th>
+          <th>Опис</th>
+          <th>Дата</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for article in articles %}
+          <tr>
+            <td>
+              <a href="{% url 'article' article.slug %}">{{ article.name }}</a>
+              <small class="text-muted d-block">{{ article.description }}</small>
+            </td>
+            <td class="align-middle">{{ article.text }}</td>
+            <td class="align-middle">{{ article.published }}</td>
+            <td></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
