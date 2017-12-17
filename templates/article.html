@@ -8,8 +8,10 @@
 <li class="breadcrumb-item active">{{ article.name }}</li>
 {% endblock %}
 
-
 {% block content %}
+    {% if user.is_authenticated %}
+    <a class="btn btn-default" href="{% url 'edit_article' article.slug  %}">Редагувати</a>
+    {% endif %}
       <div>
           <h1>{{ article.name }} </h1>
       </div>
