@@ -13,7 +13,7 @@ class Article(models.Model):
     text = models.TextField(max_length=1500, blank=True, verbose_name='Текст')
     published = models.DateTimeField(auto_now_add=True, blank=True)
     image = models.ImageField(
-        upload_to='catalogue/articles/images', help_text='150x150px', default='', blank=True, verbose_name='Зображення')
+        upload_to='catalogue/images', help_text='150x150px', default='', blank=True, verbose_name='Зображення')
     creator = models.ForeignKey(User, related_name='articles', on_delete=models.CASCADE, default=1, verbose_name='Автор')
 
     def __str__(self):
@@ -24,4 +24,4 @@ class Article(models.Model):
         super(Article, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ('published',)
+        ordering = ('-published',)

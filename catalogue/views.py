@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from django.http import Http404
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect, get_object_or_404
+from django.utils import timezone
+from .forms import NewArticleForm
 from .models import Article
 
 def home_page(request):
@@ -10,8 +12,18 @@ def list_article(request):
     return render(request, 'articles.html', {'articles': articles})
 
 def article(request, slug):
-    try:
-        article = Article.objects.get(slug=slug)
-    except Article.DoesNotExist:
-        raise Http404
+    article = get_object_or_404(Article, slug=slug)
     return render(request, 'article.html', {'article': article})
+
+def new_article(request):
+    if request.method == 'POST':
+        form = NewArticleForm(request.POST)
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.creator = request.user
+            article.published = timezone.now()
+            article.save()
+            return redirect('article', slug=article.slug)
+    else:
+        form = NewArticleForm()
+    return render(request, 'new_article.html', {'form': form})

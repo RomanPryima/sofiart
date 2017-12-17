@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
-{% block breadcrumb %}
-  <li class="breadcrumb-item active">Sofiart Продукти</li>
+
+{% block title %}
+{{ block.super }} - Список продуктів
 {% endblock %}
 
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="/">Головна</a>
+<li class="breadcrumb-item active">Список продуктів</li>
+{% endblock %}
 
 {% block content %}
     <table class="table">
       <thead class="thead-inverse">
-        <a href="/">На головну</a>
         <tr>
           <th>Продукт</th>
           <th>Опис</th>

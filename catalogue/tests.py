@@ -58,3 +58,14 @@ class ArticleTests(TestCase):
     def test_article_url_resolves_article_view(self):
         view = resolve('/article/{}/'.format(self.article.slug))
         self.assertEquals(view.func, article)
+
+class NewArticleTests(TestCase):
+
+    def test_new_topic_view_success_status_code(self):
+        response = self.client.get('/new_article/')
+        self.assertEquals(response.status_code, 200)
+
+
+    def test_new_article_url_resolves_new_topic_view(self):
+        view = resolve('/new_article/')
+        self.assertEquals(view.func, new_article)
