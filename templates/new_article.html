@@ -3,8 +3,14 @@
 {% block title %}Створити новий продукт{% endblock %}
 
 {% block breadcrumb %}
-<li class="breadcrumb-item"><a href="{% url 'home' %}">Продукти</a></li>
-<li class="breadcrumb-item active">Новий продукт</li>
+  <ol class="breadcrumb my-4">
+    <li class="breadcrumb-item"><a href="{% url 'list_article' %}">Продукти</a></li>
+    {% if article.name %}
+      <li class="breadcrumb-item active">{{ article.name}}</li>
+    {% else %}
+      <li class="breadcrumb-item active">Новий продукт</li>
+    {% endif %}
+  </ol>
 {% endblock %}
 
 {% block content %}

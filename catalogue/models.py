@@ -11,6 +11,7 @@ class Article(models.Model):
     slug = models.SlugField(blank=True, editable=False)
     description = models.CharField(max_length=200, blank=True, verbose_name='Опис')
     text = models.TextField(max_length=1500, blank=True, verbose_name='Текст')
+    price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=0.00, verbose_name='Ціна')
     published = models.DateTimeField(auto_now_add=True, blank=True)
     image = models.ImageField(
         upload_to='catalogue/images', default='', blank=True, verbose_name='Зображення')

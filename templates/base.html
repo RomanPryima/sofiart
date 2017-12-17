@@ -18,10 +18,9 @@
     </nav>
 
       <div class="container">
-        <ol class="breadcrumb my-4">
-            {% block breadcrumb %}
-            {% endblock %}
-        </ol>
+        {% block breadcrumb %}
+        {% endblock %}
+
         {% block content %}
         {% endblock %}
       </div>

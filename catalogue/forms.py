@@ -17,7 +17,7 @@ class NewArticleForm(forms.ModelForm):
 
     class Meta:
         model = Article
-        fields = ['name', 'description', 'text', 'image']
+        fields = ['name', 'price', 'description', 'text', 'image']
 
 
 class EditArticleForm(forms.ModelForm):
@@ -33,4 +33,4 @@ class EditArticleForm(forms.ModelForm):
 
     class Meta:
         model = Article
-        fields = ['name', 'description', 'text', 'image']
+        fields = ['name', 'price', 'description', 'text', 'image']

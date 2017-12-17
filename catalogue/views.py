@@ -57,4 +57,4 @@ def edit_article(request, slug):
             return redirect('article', slug=article.slug)
     else:
         form = NewArticleForm(instance=article)
-    return render(request, 'new_article.html', {'form': form})
+    return render(request, 'new_article.html', {'form': form, 'article':article})

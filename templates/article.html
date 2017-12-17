@@ -4,8 +4,10 @@
 {% endblock %}
 
 {% block breadcrumb %}
-<li class="breadcrumb-item"><a href="/list_article/">Список продуктів</a>
-<li class="breadcrumb-item active">{{ article.name }}</li>
+  <ol class="breadcrumb my-4">
+    <li class="breadcrumb-item"><a href="/list_article/">Список продуктів</a>
+    <li class="breadcrumb-item active">{{ article.name }}</li>
+  </ol>
 {% endblock %}
 
 {% block content %}
@@ -15,6 +17,9 @@
       <div>
           <h1>{{ article.name }} </h1>
       </div>
+        <div>
+            <h3>{{ article.price }} </h3>
+        </div>
       <div>
         {{ article.description }}
       </div>
