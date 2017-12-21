@@ -2,7 +2,6 @@ from django import forms
 from .models import Article
 
 
-
 class NewArticleForm(forms.ModelForm):
 
     name = forms.CharField(label='Назва')
@@ -16,7 +15,7 @@ class NewArticleForm(forms.ModelForm):
         help_text='Максимальна довжина тексту - 1500 знаків.'
         )
 
-    image = forms.ImageField(required=False)
+    image = forms.ImageField(required=False, label='Зображення', help_text='Натисніть тут, щоб завантажити.')
 
     class Meta:
         model = Article
