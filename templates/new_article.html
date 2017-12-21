@@ -14,9 +14,13 @@
 {% endblock %}
 
 {% block content %}
-<form enctype="multipart/form-data" method="post">
+  <form enctype="multipart/form-data" method="post">
+    {% if article %}
+      {% csrf_token %}
+        <button type="submit" name="delete-article" class="btn btn-secondary">Видалити</button>
+    {% endif %}
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-success">Post</button>
-</form>
+    <button type="submit" class="btn btn-success">Зберегти</button>
+  </form>
 {% endblock %}

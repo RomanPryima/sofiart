@@ -14,39 +14,14 @@ def article(request, slug):
     article = get_object_or_404(Article, slug=slug)
     return render(request, 'article.html', {'article': article})
 
-def new_article(request):
+def edit_article(request, slug=None):
+    article = None
+    if slug:
+        article = get_object_or_404(Article, slug=slug)
     if request.method == 'POST':
-        form = NewArticleForm(request.POST, request.FILES)
-        if form.is_valid():
-            article = form.save(commit=False)
-            article.creator = request.user
-            article.published = timezone.now()
-            import pdb
-            pdb.set_trace()
-            article.image = request.FILES['image']
-            article.save()
-            return redirect('article', slug=article.slug)
-    else:
-        form = NewArticleForm()
-    return render(request, 'new_article.html', {'form': form})
-
-def new_article(request):
-    if request.method == 'POST':
-        form = NewArticleForm(request.POST, request.FILES)
-        if form.is_valid():
-            article = form.save(commit=False)
-            article.creator = request.user
-            article.published = timezone.now()
-            article.image = request.FILES.get('image')
-            article.save()
-            return redirect('article', slug=article.slug)
-    else:
-        form = NewArticleForm()
-    return render(request, 'new_article.html', {'form': form})
-
-def edit_article(request, slug):
-    article = get_object_or_404(Article, slug=slug)
-    if request.method == 'POST':
+        if 'delete-article' in request.POST:
+            article.delete()
+            return redirect('list_article')
         form = NewArticleForm(request.POST, instance=article)
         if form.is_valid():
             article = form.save(commit=False)
