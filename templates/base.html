@@ -3,28 +3,40 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Sofiart{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block stylesheet %}{% endblock %}
   </head>
-  <body>
+    <body>
+  {% block body %}
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'home' %}">Sofiart</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          <div class="collapse navbar-collapse" id="mainMenu">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Ви увійшли як {{ user.username }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">Sofiart</a>
-      </div>
-    </nav>
+        <div class="container">
+          {% block breadcrumb %}
+          {% endblock %}
 
-      <div class="container">
-        {% block breadcrumb %}
-        {% endblock %}
+          {% block content %}
+          {% endblock %}
+        </div>
 
-        {% block content %}
-        {% endblock %}
-      </div>
-  </body>
+  {% endblock body %}
+   </body>
   <footer>
 
   </footer>

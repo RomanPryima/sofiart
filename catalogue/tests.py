@@ -3,6 +3,7 @@ from django.urls import resolve
 from django.test import TestCase
 from .views import *
 from .models import Article
+from .forms import NewArticleForm
 
 class HomeTests(TestCase):
     def setUp(self):
@@ -60,6 +61,8 @@ class ArticleTests(TestCase):
         self.assertEquals(view.func, article)
 
 class NewArticleTests(TestCase):
+    def setUp(self):
+        self.article =Article.objects.create(name=u'Прибамбас')
 
     def test_new_topic_view_success_status_code(self):
         response = self.client.get('/new_article/')
@@ -68,4 +71,26 @@ class NewArticleTests(TestCase):
 
     def test_new_article_url_resolves_new_topic_view(self):
         view = resolve('/new_article/')
-        self.assertEquals(view.func, new_article)
+        self.assertEquals(view.func, edit_article)
+
+    def test_edit_article_contains_form(self):
+        url = reverse('edit_article', kwargs={'slug': self.article.slug})
+        response = self.client.get(url)
+        form = response.context.get('form')
+        self.assertIsInstance(form, NewArticleForm)
+
+    def test_new_article_contains_form(self):
+        response = self.client.get('/new_article/')
+        form = response.context.get('form')
+        self.assertIsInstance(form, NewArticleForm)
+
+    def test_edit_article_invalid_post_data(self):
+        '''
+        Invalid post data should not redirect
+        The expected behavior is to show the form again with validation errors
+        '''
+        url = reverse('edit_article', kwargs={'slug': self.article.slug})
+        response = self.client.post(url, {})
+        form = response.context.get('form')
+        self.assertEquals(response.status_code, 200)
+        self.assertTrue(form.errors)

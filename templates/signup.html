@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<div class="container">
   <h2>Реєстрація користувача</h2>
     <form method="post" novalidate>
       {% csrf_token %}
       {% include 'includes/form.html' %}
       <button type="submit" class="btn btn-primary">Створити користувача</button>
     </form>
+</div>
 {% endblock %}

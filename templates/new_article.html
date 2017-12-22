@@ -24,5 +24,10 @@
     {% csrf_token %}
     {% include 'includes/form.html' %}
     <button type="submit" class="btn btn-success">Зберегти</button>
+    {% if article %}
+      <a href="{% url 'article' article.slug %}" class="btn btn-secondary">Скасувати</a>
+    {% else %}
+      <a href="{% url 'list_article' %}" class="btn btn-secondary">Скасувати</a>
+    {% endif %}
   </form>
 {% endblock %}
