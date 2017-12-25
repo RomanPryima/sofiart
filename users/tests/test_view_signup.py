@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from django.urls import resolve, reverse
 from django.test import TestCase
-from .views import signup
-from .forms import UserForm
+from users.views import signup
+from users.forms import UserForm
 
 class SignUpTests(TestCase):
     def setUp(self):
@@ -53,7 +53,7 @@ class SuccessfulSignUpTests(TestCase):
 class InvalidSignUpTests(TestCase):
     def setUp(self):
         url = reverse('signup')
-        self.response = self.client.post(url, {})  # submit an empty dictionary
+        self.response = self.client.post(url, {})
 
     def test_signup_status_code(self):
         self.assertEquals(self.response.status_code, 200)
@@ -64,3 +64,9 @@ class InvalidSignUpTests(TestCase):
 
     def test_dont_create_user(self):
         self.assertFalse(User.objects.exists())
+
+    def test_form_inputs(self):
+           self.assertContains(self.response, '<input', 7)
+           self.assertContains(self.response, 'type="text"', 3)
+           self.assertContains(self.response, 'type="email"', 1)
+           self.assertContains(self.response, 'type="password"', 2)
