@@ -3,13 +3,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UsernameField
 
 
-
 class UserForm(UserCreationForm):
     username = forms.CharField(label='Псевдо')
     first_name = forms.CharField(label="Ім'я", required=False)
     last_name = forms.CharField(label="Прізвище", required=False)
     email = forms.EmailField(label='Електронна поштова скринька')
-
 
     def save(self, commit=True):
         user = super(UserForm, self).save(commit=False)
@@ -46,10 +44,10 @@ class LoginForm(AuthenticationForm):
 
     error_messages = {
         'invalid_login': (
-            "Please enter a correct %(username)s and password. Note that both "
-            "fields may be case-sensitive."
+            "Будь ласка, введіть корректне ім'я і пароль. Зауважте, що обидва "
+            "поля чутливі до регістру."
         ),
-        'inactive': ("This account is inactive."),
+        'inactive': "Цей користувач - неактивний.",
     }
 
     class Meta:

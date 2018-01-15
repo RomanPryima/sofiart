@@ -1,9 +1,9 @@
 from django.urls import reverse
 from django.urls import resolve
 from django.test import TestCase
-from .views import *
-from .models import Article
-from .forms import NewArticleForm
+from catalogue.views import *
+from catalogue.models import Article
+from catalogue.forms import NewArticleForm
 
 class HomeTests(TestCase):
     def setUp(self):
