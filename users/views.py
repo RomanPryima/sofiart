@@ -14,17 +14,3 @@ def signup(request):
     else:
         form = UserForm()
     return render(request, 'signup.html', {'form': form})
-
-def user_login(request):
-    form  = LoginForm(request.POST)
-    if request.user.is_authenticated:
-        return redirect('home')
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                auth_login(request, user)
-                return redirect('home')
-    return render(request, 'login.html', {'form': form})

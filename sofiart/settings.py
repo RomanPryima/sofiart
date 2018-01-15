@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catalogue',
+    'users',
     'widget_tweaks',
     'debug_toolbar',
 ]
@@ -127,10 +128,6 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    # os.path.join(BASE_DIR, 'catalogue'),
-    os.path.join(BASE_DIR, 'users'),
-]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -140,3 +137,4 @@ MEDIAFILES_DIRS = [
 ]
 
 LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'home'
