@@ -128,7 +128,8 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'catalogue'),
+    # os.path.join(BASE_DIR, 'catalogue'),
+    os.path.join(BASE_DIR, 'users'),
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -137,3 +138,5 @@ MEDIA_URL = '/media/'
 MEDIAFILES_DIRS = [
     os.path.join(MEDIA_ROOT, '/catalogue/images'),
 ]
+
+LOGOUT_REDIRECT_URL = 'home'
