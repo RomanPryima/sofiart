@@ -27,7 +27,9 @@ def edit_article(request, slug=None):
             article = form.save(commit=False)
             article.creator = request.user
             article.published = timezone.now()
-            article.image = request.FILES.get('image')
+            if request.FILES.get('image'):
+                article.image = request.FILES.get('image')
+            article.gallery_image = request.FILES.get('gallery_image')
             article.save()
             return redirect('article', slug=article.slug)
     else:

@@ -16,7 +16,8 @@ class NewArticleForm(forms.ModelForm):
         )
 
     image = forms.ImageField(required=False, label='Основне зображення', help_text='Натисніть тут, щоб завантажити.')
+    gallery_image = forms.ImageField(required=False, label='Зображення для галереї', help_text='Натисніть тут, щоб завантажити.')
 
     class Meta:
         model = Article
-        fields = ['name', 'price', 'description', 'text', 'image']
+        fields = ['name', 'price', 'description', 'text', 'image', 'gallery_image']

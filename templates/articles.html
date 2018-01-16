@@ -20,7 +20,8 @@
         <tr>
           <th>Продукт</th>
           <th>Опис</th>
-          <th>Дата</th>
+          <th>Створено</th>
+          <th>Змінено</th>
         </tr>
       </thead>
       <tbody>
@@ -31,7 +32,8 @@
               <small class="text-muted d-block">{{ article.description }}</small>
             </td>
             <td class="align-middle">{{ article.text }}</td>
-            <td class="align-middle">{{ article.published }}</td>
+            <td class="align-middle">{{ article.created }}</td>
+            <td class="align-middle">{{ article.updated }}</td>
             <td></td>
           </tr>
         {% endfor %}

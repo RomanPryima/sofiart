@@ -31,4 +31,9 @@
            <img src="{{ article.image.url }}" width='500' alt="{{ article.image.name }}">
         {% endif %}
       </div>
+      <div>
+        {% for galleryimage in article.gallery_images.all %}
+          <img src="{{ galleryimage.image.url }}" width='300' alt="{{ galleryimage.image.name }}">
+        {% endfor %}
+      </div>
 {% endblock %}
