@@ -13,8 +13,9 @@ class Article(models.Model):
     text = models.TextField(max_length=1500, blank=True, verbose_name='Текст')
     price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=0.00, verbose_name='Ціна')
     published = models.DateTimeField(auto_now_add=True, blank=True)
+    updated = models.DateTimeField(auto_now_add=True, blank=True)
     image = models.ImageField(
-        upload_to='catalogue/images', default='', blank=True, verbose_name='Зображення')
+        upload_to='catalogue/images', blank=True, verbose_name='Зображення')
     creator = models.ForeignKey(User, related_name='articles', on_delete=models.CASCADE, default=1, verbose_name='Автор')
 
     def __str__(self):
@@ -26,3 +27,8 @@ class Article(models.Model):
 
     class Meta:
         ordering = ('-published',)
+
+class ArticleImages(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, verbose_name='стаття')
+    image = models.ImageField(
+        upload_to='catalogue/images/gallery', blank=True, verbose_name='Зображення')
