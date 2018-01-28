@@ -32,6 +32,16 @@ class Article(models.Model):
         ordering = ('-updated',)
 
 class GalleryImage(models.Model):
+    name = models.CharField(blank=True, max_length=100)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='gallery_images', verbose_name='стаття')
     image = models.ImageField(upload_to='catalogue/images/gallery', blank=True, verbose_name='Зображення')
+
+    def save(self, article=None, image=None):
+        self.name = slugify(unidecode(self.name))
+        self.article = article
+        self.image = image
+        super(GalleryImage, self).save()
+
+    class Meta:
+        ordering = ('-created',)

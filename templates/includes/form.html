@@ -30,4 +30,9 @@
       </small>
     {% endif %}
   </div>
+  {% if article.gallery_images.all and field.name == 'gallery_image' %}
+    {% for gallery_image in article.gallery_images.all %}
+      <img src="{{ gallery_image.image.url }}" class="img-fluid" style="max-width: 300px" alt="{{ gallery_image.image.name }}">
+    {% endfor %}
+  {% endif %}
 {% endfor %}

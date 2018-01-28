@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import Article
 
 
@@ -16,7 +17,9 @@ class NewArticleForm(forms.ModelForm):
         )
 
     image = forms.ImageField(required=False, label='Основне зображення', help_text='Натисніть тут, щоб завантажити.')
-    gallery_image = forms.ImageField(required=False, label='Зображення для галереї', help_text='Натисніть тут, щоб завантажити.')
+    gallery_image = forms.ImageField(required=False, label='Зображення для галереї',
+                                     help_text='Натисніть тут, щоб завантажити.',
+                                     widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
     class Meta:
         model = Article

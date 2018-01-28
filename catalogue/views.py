@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .forms import NewArticleForm
-from .models import Article
+from .models import Article, GalleryImage
 
 def home_page(request):
     return render(request, 'home_page.html')
@@ -16,6 +16,7 @@ def article(request, slug):
 
 def edit_article(request, slug=None):
     article = None
+    gallery_form = None
     if slug:
         article = get_object_or_404(Article, slug=slug)
     if request.method == 'POST':
@@ -29,9 +30,14 @@ def edit_article(request, slug=None):
             article.published = timezone.now()
             if request.FILES.get('image'):
                 article.image = request.FILES.get('image')
-            article.gallery_image = request.FILES.get('gallery_image')
             article.save()
+            if request.FILES.get('gallery_image'):
+                images = request.FILES.getlist('gallery_image')
+                for image in images:
+                    gallery_image = GalleryImage()
+                    gallery_image.save(article=article, image=image)
             return redirect('article', slug=article.slug)
     else:
         form = NewArticleForm(instance=article)
-    return render(request, 'new_article.html', {'form': form, 'article':article})
+        gallery_form = GalleryImage(article=article)
+    return render(request, 'new_article.html', {'form': form, 'gallery_form': gallery_form, 'article': article})
