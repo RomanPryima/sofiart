@@ -1,43 +1,46 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.utils import timezone
+from django.shortcuts import redirect, get_object_or_404
+from django.views.generic import TemplateView, DetailView, FormView
 from .forms import NewArticleForm
 from .models import Article, GalleryImage
 
-def home_page(request):
-    return render(request, 'home_page.html')
 
-def list_article(request):
-    articles = Article.objects.all()
-    return render(request, 'articles.html', {'articles': articles})
+class ListArticleView(TemplateView):
 
-def article(request, slug):
-    article = get_object_or_404(Article, slug=slug)
-    return render(request, 'article.html', {'article': article})
+    def get_context_data(self, **kwargs):
+        context = super(ListArticleView, self).get_context_data(**kwargs)
+        context['articles'] = Article.objects.all()
+        return context
 
-def edit_article(request, slug=None):
-    article = None
-    gallery_form = None
-    if slug:
-        article = get_object_or_404(Article, slug=slug)
-    if request.method == 'POST':
-        if 'delete-article' in request.POST:
-            article.delete()
-            return redirect('list_article')
-        form = NewArticleForm(request.POST, instance=article)
-        if form.is_valid():
-            article = form.save(commit=False)
-            article.creator = request.user
-            article.published = timezone.now()
-            if request.FILES.get('image'):
-                article.image = request.FILES.get('image')
+class ArticleView(DetailView):
+
+    model = Article
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleView, self).get_context_data(**kwargs)
+        context['article'] = get_object_or_404(Article, slug=kwargs.get('object').slug)
+        return context
+
+
+class NewArticle(FormView):
+    form_class = NewArticleForm
+    template_name = 'new_article.html'
+    def form_valid(self, *args, **kwargs):
+        post_data = self.request.POST
+        post_files = self.request.FILES
+        article = Article(name=post_data.get('name'),
+                          description=post_data.get('description'),
+                          text=post_data.get('text'),
+                          price=post_data.get('price'),
+                          image=post_files.get('image'),
+                          creator=self.request.user,
+                          )
+        try:
             article.save()
-            if request.FILES.get('gallery_image'):
-                images = request.FILES.getlist('gallery_image')
-                for image in images:
-                    gallery_image = GalleryImage()
-                    gallery_image.save(article=article, image=image)
-            return redirect('article', slug=article.slug)
-    else:
-        form = NewArticleForm(instance=article)
-        gallery_form = GalleryImage(article=article)
-    return render(request, 'new_article.html', {'form': form, 'gallery_form': gallery_form, 'article': article})
+        except:
+            return redirect('new_article')
+        if 'gallery_image' in post_files:
+            for gallery_image in post_files.getlist('gallery_image'):
+                image = GalleryImage()
+                image.save(article=article, image=gallery_image)
+        return redirect('article', slug=article.slug)
+
