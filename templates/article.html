@@ -11,8 +11,14 @@
 {% endblock %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-    <a class="btn btn-default" href="{% url 'edit_article' article.slug  %}">Редагувати</a>
+    {% if user.is_staff %}
+    <div class="btn-group">
+        <a href="{% url 'edit_article' article.pk %}"  class="btn btn-primary">Редагувати продукт</a>
+     <form action="{% url 'delete_article' article.pk %}" method="post" style="display: inline;">
+       {% csrf_token %}
+       <button type="submit" class="btn btn-secondary">Видалити продукт</button>
+     </form>
+    </div>
     {% endif %}
       <div>
           <h1>{{ article.name }} </h1>

@@ -8,7 +8,7 @@
   <ol class="breadcrumb my-4">
     <li class="breadcrumb-item"><a href="{% url 'list_article' %}">Продукти</a></li>
     {% if article.name %}
-      <li class="breadcrumb-item active">{{ article.name}}</li>
+      <li class="breadcrumb-item active">{{ article.name }}</li>
     {% else %}
       <li class="breadcrumb-item active">Новий продукт</li>
     {% endif %}
@@ -17,15 +17,12 @@
 
 {% block content %}
   <form enctype="multipart/form-data" method="post">
-    {% if article %}
-      {% csrf_token %}
-      <button type="submit" name="delete-article" class="btn btn-secondary">Видалити</button>
-    {% endif %}
     {% csrf_token %}
     {% include 'includes/form.html' %}
+    {% include 'includes/image_edit_form.html' %}
     <button type="submit" class="btn btn-success">Зберегти</button>
     {% if article %}
-      <a href="{% url 'article' article.slug %}" class="btn btn-secondary">Скасувати</a>
+      <a href="{% url 'article' article.id %}" class="btn btn-secondary">Скасувати</a>
     {% else %}
       <a href="{% url 'list_article' %}" class="btn btn-secondary">Скасувати</a>
     {% endif %}

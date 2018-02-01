@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
+{% if user.is_staff %}
   <a class="btn btn-default" href="{% url 'new_article' %}">Створити новий</a>
 {% endif %}
     <table class="table">
@@ -28,7 +28,7 @@
         {% for article in articles %}
           <tr>
             <td>
-              <a href="{% url 'article' article.slug %}">{{ article.name }}</a>
+              <a href="{% url 'article' article.pk %}">{{ article.name }}</a>
               <small class="text-muted d-block">{{ article.description }}</small>
             </td>
             <td class="align-middle">{{ article.text }}</td>
