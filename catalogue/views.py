@@ -39,8 +39,8 @@ class NewArticleView(CreateView):
         if 'gallery_images' in post_files:
             for gallery_image in post_files.getlist('gallery_images'):
                 image = GalleryImage()
-                image.save(article=article, image=gallery_image)
-        return redirect('article', pk=article.pk)
+                image.save(article=article, image=gallery_image,  name=gallery_image.name)
+        return redirect('edit_article', pk=article.pk)
 
 class EditArticleView(UpdateView):
     model = Article
@@ -57,10 +57,17 @@ class EditArticleView(UpdateView):
         if post_files.get('image'):
             article.image=post_files.get('image')
         article.creator=self.request.user
-        if 'gallery_image' in post_files:
+        if 'gallery_images' in post_files:
             for gallery_image in post_files.getlist('gallery_images'):
                 image = GalleryImage()
-                image.save(article=article, image=gallery_image)
+                image.save(article=article, image=gallery_image, name=gallery_image.name)
+        if 'g_image_to_delete' in post_data:
+            for image_id in post_data.getlist('g_image_to_delete'):
+                gallery_image = GalleryImage.objects.get(pk=image_id)
+                gallery_image.delete()
+        if 'is_title' in post_data:
+            gallery_image = GalleryImage.objects.get(pk=post_data.get('is_title'))
+            gallery_image.set_title()
         return redirect('article', pk=article.pk)
 
 class DeleteArticleView(DeleteView):

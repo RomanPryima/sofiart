@@ -9,15 +9,13 @@
   </div>
 {% endif %}
 
+{% if article.gallery_image.is_title == True %}
+    <img class="card-img-top img-responsive" src="{{ article.gallery_image.is_title.image.url }}" alt="{{ gallery_image.name }}">
+{% endif %}
 {% for field in form %}
   <div class="form-group">
     {{ field.label_tag }}
-
-    {% if article.image and field.name == 'image' %}
-      <img src="{{ article.image.url }}" class="img-fluid" style="max-width: 300px" alt="{{ article.image.name }}">
-    {% endif %}
-
-      {% render_field field class=field|input_class %}
+    {% render_field field class=field|input_class %}
     {% for error in field.errors %}
       <div class="invalid-feedback">
         {{ error }}

@@ -1,9 +1,18 @@
 {% load widget_tweaks %}
 {% for gallery_image in article.gallery_images.all %}
-  <img src="{{ gallery_image.image.url }}" class="img-fluid" style="max-width: 300px" alt="{{ gallery_image.image.name }}">
-  <small>{{ gallery_image.image.name }}</small>
-  <input type="hidden" name="gallery_image_for _delete" id="{{ gallery_image.pk }}" value="">
-  <label>Видалити</label>
-  <input type="checkbox">
+    <div class="col-sm-4 g-image-card">
+        <div class="card-block" id="{{ gallery_image.pk }}">
+            {% if gallery_image.is_title != True %}
+                <button class="btn">erfeawsf</button>
+                <input type="radio" name="is_title" value="{{ gallery_image.pk }}" checked > Основне зображення
+            {% else %}
+                <input type="radio" name="is_title" value="{{ gallery_image.pk }}" > Основне зображення
+            {% endif %}
+            <small class="card-title">{{ gallery_image.name }}</small>
+            <img class="card-img-top img-responsive" src="{{ gallery_image.image.url }}" alt="{{ gallery_image.name }}">
+            <button type="button" class="btn btn-danger pic-del">Видалити</button>
+        </div>
+    </div>
 {% endfor %}
+
 

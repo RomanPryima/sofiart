@@ -2,6 +2,8 @@
 
 {% load widget_tweaks %}
 
+{% load static %}
+
 {% block title %}Створити новий продукт{% endblock %}
 
 {% block breadcrumb %}
@@ -19,7 +21,10 @@
   <form enctype="multipart/form-data" method="post">
     {% csrf_token %}
     {% include 'includes/form.html' %}
-    {% include 'includes/image_edit_form.html' %}
+    <div class="row">
+      {% include 'includes/image_edit_form.html' %}
+    </div>
+    <div id="g-image-delete" hidden></div>
     <button type="submit" class="btn btn-success">Зберегти</button>
     {% if article %}
       <a href="{% url 'article' article.id %}" class="btn btn-secondary">Скасувати</a>
@@ -27,4 +32,11 @@
       <a href="{% url 'list_article' %}" class="btn btn-secondary">Скасувати</a>
     {% endif %}
   </form>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/catalogue_script.js' %}"></script>
 {% endblock %}

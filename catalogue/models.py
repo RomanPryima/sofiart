@@ -40,12 +40,25 @@ class GalleryImage(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='gallery_images', verbose_name='стаття')
     image = models.ImageField(upload_to='catalogue/images/gallery', blank=True, verbose_name='Зображення')
+    is_title = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         self.name = slugify(unidecode(self.name))
         self.article = kwargs.get('article')
         self.image = kwargs.get('image')
         super(GalleryImage, self).save()
+
+    def set_title(self):
+        titled_images = GalleryImage.objects.filter(article=self.article, is_title=True)
+        for image in titled_images:
+            image.is_title = False
+            image.save()
+
+        import pdb
+        pdb.set_trace()
+        self.is_title = True
+        self.save()
+
 
     class Meta:
         ordering = ('-created',)

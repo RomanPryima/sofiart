@@ -14,12 +14,10 @@ class NewArticleForm(forms.ModelForm):
                            max_length=1500,
                            help_text='Максимальна довжина тексту - 1500 знаків.'
                            )
-
-    image = forms.ImageField(required=False, label='Основне зображення', help_text='Натисніть тут, щоб завантажити.')
     gallery_images = forms.ImageField(required=False, label='Зображення для галереї',
                                       help_text='Натисніть тут, щоб завантажити.',
                                       widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
     class Meta:
         model = Article
-        fields = ['name', 'price', 'description', 'text', 'image', 'gallery_images']
+        fields = ['name', 'price', 'description', 'text', 'gallery_images']
