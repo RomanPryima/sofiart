@@ -4,7 +4,13 @@
 
 {% load static %}
 
-{% block title %}Створити новий продукт{% endblock %}
+{% block title %}
+    {% if article %}
+        Редагувати продукт
+    {% else %}
+       Створити новий продукт
+    {% endif %}
+{% endblock %}
 
 {% block breadcrumb %}
   <ol class="breadcrumb my-4">
@@ -35,8 +41,5 @@
 {% endblock %}
 
 {% block scripts %}
-  <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-  <script src="{% static 'js/popper.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/catalogue_script.js' %}"></script>
 {% endblock %}

@@ -15,9 +15,12 @@ class ListArticleView(ListView):
 class ArticleView(DetailView):
     model = Article
 
-def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super(ArticleView, self).get_context_data(**kwargs)
-        context['article'] = get_object_or_404(Article, pk=kwargs.get('object').pk)
+        article = get_object_or_404(Article, pk=kwargs.get('object').pk)
+        context['article'] = article
+        context['title_image'] = get_object_or_404(GalleryImage, article=article, is_title=True)
+        context['gallery_images'] = GalleryImage.objects.filter(article=article, is_title=False)
         return context
 
 

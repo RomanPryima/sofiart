@@ -14,8 +14,6 @@ class Article(models.Model):
     price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=0.00, verbose_name='Ціна')
     updated = models.DateTimeField(auto_now=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    image = models.ImageField(
-        upload_to='catalogue/images', blank=True, verbose_name='Зображення')
     creator = models.ForeignKey(User, related_name='articles', on_delete=models.CASCADE, default=1, verbose_name='Автор')
 
     def get_absolute_url(self):
@@ -43,21 +41,22 @@ class GalleryImage(models.Model):
     is_title = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
-        self.name = slugify(unidecode(self.name))
-        self.article = kwargs.get('article')
-        self.image = kwargs.get('image')
+        if kwargs:
+            self.name = slugify(unidecode(self.name))
+            self.article = kwargs.get('article')
+            self.image = kwargs.get('image')
         super(GalleryImage, self).save()
 
     def set_title(self):
-        titled_images = GalleryImage.objects.filter(article=self.article, is_title=True)
+        titled_images = self.get_title_image()
         for image in titled_images:
             image.is_title = False
             image.save()
-
-        import pdb
-        pdb.set_trace()
         self.is_title = True
         self.save()
+
+    def get_title_image(self):
+        return GalleryImage.objects.filter(article=self.article, is_title=True)
 
 
     class Meta:
