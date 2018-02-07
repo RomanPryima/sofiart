@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from .forms import NewArticleForm
@@ -7,6 +7,7 @@ from .models import Article, GalleryImage
 
 class ListArticleView(ListView):
     context_object_name = 'articles'
+    paginate_by = 6
 
     def get_queryset(self):
         return Article.objects.all()
