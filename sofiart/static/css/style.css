@@ -1,6 +1,10 @@
 body{
      background-image: url("https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J70T3LHQ2O.jpg");
-     width: 100%;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     background-attachment: fixed;
     }
 
 .title {
@@ -144,7 +148,7 @@ p {
 
 /*scroll effect*/
 .navbar-trans {
-  background-color: transparent;
+  background-image: url("https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J70T3LHQ2O.jpg");
   border: none;
   transition: top 1s ease;
 }
@@ -171,10 +175,15 @@ p {
 }
 /*down nav*/
 .navbar-doublerow .navbar-down .navbar-brand {
-	padding: 0px auto;
-	float: left;
-	color: #fff;
-	font-size: 32px;
+	text-align: center;
+    font-family: 'Oswald';
+    font-weight: 100;
+    font-size: 3.75rem;
+    letter-spacing: 5px;
+    background: linear-gradient(rgba(255, 0, 0, 0), #fff, rgba(255, 0, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0;
 }
 .navbar-doublerow .navbar-down ul>li>a{
 	font-size: 16px;

@@ -5,13 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Sofiart{% endblock %}</title>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     {% block stylesheet %}{% endblock %}
   </head>
     <body>
-  {% block body %}
+  <header>
     <nav class="navbar navbar-default navbar-doublerow navbar-trans navbar-fixed-top">
       <!-- top nav -->
       <nav class="navbar navbar-top hidden-xs">
@@ -56,7 +57,7 @@
               <a class="navbar-brand" href="{% url 'home' %}">SofiArt</a>
             </div>
             <ul class="nav navbar-nav flex-item hidden-xs">
-              <li><a href="https://github.com/alphadsy">Projects</a></li>
+              <li><a href="/list_article/">Список продуктів</a></li>
               <li><a href="https://github.com/alphadsy">Pricing</a></li>
               <li><a href="https://github.com/shu3aybbadran">TheTeam</a></li>
             </ul>
@@ -80,6 +81,8 @@
           </div>
         </nav>
       </nav>
+    </header>
+  {% block body %}
     {% block breadcrumb %}
     {% endblock %}
    <div class="container">
