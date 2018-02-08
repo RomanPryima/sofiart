@@ -148,7 +148,8 @@ p {
 
 /*scroll effect*/
 .navbar-trans {
-  background-image: url("https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J70T3LHQ2O.jpg");
+  background-color: transparent;
+  background-image: url("https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J70T3LHQ2O.jpg"),
   border: none;
   transition: top 1s ease;
 }
@@ -219,3 +220,7 @@ p {
 .text-white,.text-white-hover:hover{color:#fff!important}
 /*fontcolor*/
 .light-grey {color:#000!important;background-color:#E6E9ED!important}
+
+.shift-down{
+    margin-top: 8%;
+}
