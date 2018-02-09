@@ -7,6 +7,17 @@ body{
      background-attachment: fixed;
     }
 
+
+.btn, .btn-primary{
+    background-color: transparent;
+    font-size: 1.2em;
+}
+
+.btn-secondary{
+    color: #fff;
+    border-color: #fff;
+}
+
 .title {
     text-align: center;
     font-family: 'Oswald';
@@ -148,8 +159,8 @@ p {
 
 /*scroll effect*/
 .navbar-trans {
-  background-color: transparent;
-  background-image: url("https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J70T3LHQ2O.jpg"),
+  background-image: url("https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J70T3LHQ2O.jpg");
+  background-attachment: fixed;
   border: none;
   transition: top 1s ease;
 }
@@ -222,5 +233,19 @@ p {
 .light-grey {color:#000!important;background-color:#E6E9ED!important}
 
 .shift-down{
-    margin-top: 8%;
+    margin-top: 10%;
 }
+
+.pagination > li > a, .pagination > .disabled > a{
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 1.5em;
+
+}
+.pagination > li > a{
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 1.5em;
+    color: #fff;
+}
+

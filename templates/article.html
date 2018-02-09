@@ -3,13 +3,6 @@
 {{ block.super }} - {{ article.name }}
 {% endblock %}
 
-{% block breadcrumb %}
-  <ol class="breadcrumb my-4">
-    <li class="breadcrumb-item"><a href="/list_article/">Список продуктів</a>
-    <li class="breadcrumb-item active">{{ article.name }}</li>
-  </ol>
-{% endblock %}
-
 {% block content %}
     {% if user.is_staff %}
     <div class="btn-group">

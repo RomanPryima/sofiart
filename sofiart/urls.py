@@ -22,7 +22,6 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='home_page.html'), name='home'),
     url(r'^', include('catalogue.urls')),
     url(r'^', include('users.urls')),
     url(r'^admin/', admin.site.urls),

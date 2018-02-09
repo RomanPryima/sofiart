@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {% block stylesheet %}{% endblock %}
   </head>
     <body>
@@ -19,9 +19,6 @@
         <div class="container">
           <!-- left nav top -->
           <ul class="nav navbar-nav pull-left">
-            <li><a href="#"><span class="glyphicon glyphicon-thumbs-up text-white"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-globe text-white"></span></a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-pushpin text-white"></span></a></li>
             <li><a href="#"><span class="text-white">QUESTIONS? CALL: <b>+963000000000</b></span></a></li>
           </ul>
           <!-- right nav top -->
@@ -54,15 +51,12 @@
         <div class="container">
           <div class="flex-container">
             <div class="navbar-header flex-item">
-              <a class="navbar-brand" href="{% url 'home' %}">SofiArt</a>
+              <a class="navbar-brand" href="{% url 'list_article' %}">SofiArt</a>
             </div>
             <ul class="nav navbar-nav flex-item hidden-xs">
-              <li><a href="/list_article/">Список продуктів</a></li>
+              <li><a href="/">Список продуктів</a></li>
               <li><a href="https://github.com/alphadsy">Pricing</a></li>
               <li><a href="https://github.com/shu3aybbadran">TheTeam</a></li>
-            </ul>
-            <ul class="nav navbar-nav flex-item hidden-xs pull-right">
-              <li><a href="#" class="">offer!</a></li>
             </ul>
             <!-- dropdown only moblie -->
               <div class="dropdown visible-xs pull-right">
@@ -83,8 +77,6 @@
       </nav>
     </header>
   {% block body %}
-    {% block breadcrumb %}
-    {% endblock %}
    <div class="container shift-down">
     {% block content %}
     {% endblock %}
