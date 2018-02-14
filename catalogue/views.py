@@ -1,3 +1,4 @@
+from django.db.models.query import Q
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
@@ -10,7 +11,14 @@ class ListArticleView(ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        return Article.objects.all()
+        query = self.request.GET.get('q')
+        if query:
+            result = Article.objects.all().filter(Q(name__contains=query) |
+                                                  Q(description__contains=query) |
+                                                  Q(text__contains=query)).order_by('-created')
+        else:
+            result = Article.objects.all()
+        return result
 
 
 class ArticleView(DetailView):
@@ -36,7 +44,6 @@ class NewArticleView(CreateView):
                           description=post_data.get('description'),
                           text=post_data.get('text'),
                           price=post_data.get('price'),
-                          image=post_files.get('image'),
                           creator=self.request.user,
                           )
         article.save()
@@ -58,9 +65,8 @@ class EditArticleView(UpdateView):
         article.description=post_data.get('description')
         article.text=post_data.get('text')
         article.price=post_data.get('price')
-        if post_files.get('image'):
-            article.image=post_files.get('image')
         article.creator=self.request.user
+        article.save()
         if 'gallery_images' in post_files:
             for gallery_image in post_files.getlist('gallery_images'):
                 image = GalleryImage()
