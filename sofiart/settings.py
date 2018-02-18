@@ -59,6 +59,8 @@ MIDDLEWARE = [
 
 ]
 
+SITE_ID = 1
+
 ROOT_URLCONF = 'sofiart.urls'
 
 

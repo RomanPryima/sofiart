@@ -24,6 +24,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^', include('catalogue.urls')),
     url(r'^', include('users.urls')),
+    url(r'^comments/', include('django_comments.urls')),
     url(r'^admin/', admin.site.urls),
 ]
 
