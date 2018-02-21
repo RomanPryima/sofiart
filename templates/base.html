@@ -1,93 +1,115 @@
 <!DOCTYPE html>
 {% load static %}
 <html>
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Sofiart{% endblock %}</title>
     <link href='https://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
     {% block stylesheet %}{% endblock %}
-  </head>
-    <body>
-  <header>
+</head>
+<body>
+<header>
     <nav class="navbar navbar-default navbar-doublerow navbar-trans navbar-fixed-top">
-      <!-- top nav -->
-      <nav class="navbar navbar-top hidden-xs">
-        <div class="container">
-          <!-- left nav top -->
-          <ul class="nav navbar-nav pull-left">
-            <li><a href="#"><span class="text-white">QUESTIONS? CALL: <b>+963000000000</b></span></a></li>
-          </ul>
-          <!-- right nav top -->
-          <ul class="nav navbar-nav pull-right">
-            {% if user.is_authenticated %}
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle text-white" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ user.username }}
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
-                    <a class="dropdown-item text-white" href="{% url 'password_change' %}">Змінити пароль</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-white" href="{% url 'logout' %}">Вийти</a>
-                  </div>
-                </li>
-              </ul>
-            {% else %}
-              <form class="form-inline ml-auto">
-                <a href="{% url 'login' %}" class="btn btn-outline-secondary">Увійти</a>
-                <a href="{% url 'signup' %}" class="btn btn-primary ml-2">Зареєструватися</a>
-              </form>
-            {% endif %}
-          </ul>
-        </div>
-        <div class="dividline light-grey"></div>
-      </nav>
-      <!-- down nav -->
-      <nav class="navbar navbar-down">
-        <div class="container">
-          <div class="flex-container">
-            <div class="navbar-header flex-item">
-              <a class="navbar-brand" href="{% url 'list_article' %}">SofiArt</a>
-            </div>
-            <ul class="nav navbar-nav flex-item hidden-xs">
-              <li><a href="/">Список продуктів</a></li>
-              <li><a href="https://github.com/alphadsy">Pricing</a></li>
-              <li><a href="https://github.com/shu3aybbadran">TheTeam</a></li>
-            </ul>
-            <!-- dropdown only moblie -->
-              <div class="dropdown visible-xs pull-right">
-                <button class="btn btn-default dropdown-toggle " type="button" id="dropdownmenu" data-toggle="dropdown">
-                  <span class="glyphicon glyphicon-align-justify"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Projects</a></li>
-                  <li><a href="#">Pricing</a></li>
-                  <li><a href="#">TheTeam</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">contact us</a></li>
+        <!-- top nav -->
+        <nav class="navbar navbar-top hidden-xs">
+            <div class="container">
+                <!-- left nav top -->
+                <ul class="nav navbar-nav pull-left">
+                    <li><a href="#"><span class="text-white">QUESTIONS? CALL: <b>+963000000000</b></span></a></li>
                 </ul>
-              </div>
+                <!-- right nav top -->
+                <ul class="nav navbar-nav pull-right">
+
+
+                    {% if user.is_authenticated %}
+                    <div class="dropdown">
+                        <a class="dropdown-toggle transparent text-white" href="#" id="userMenu" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <h4>{{ user.username }}</h4>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div aria-labelledby="userMenu">
+                                    <a class="dropdown-item transparent text-white text-center"
+                                       href="{% url 'password_change' %}">Змінити пароль</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item transparent text-white text-center"
+                                       href="{% url 'logout' %}">Вийти</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    {% else %}
+                    <div class="dropdown transparent">
+                        <a class="dropdown-toggle transparent text-white" href="#" id="loginMenu" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <h4 class="text-white">Вхід</h4>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div aria-labelledby="userMenu">
+                                    <a class="dropdown-item text-white text-center"
+                                       href="{% url 'login' %}">Увійти</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-white text-center"
+                                       href="{% url 'signup' %}">Зареєструватися</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    {% endif %}
+                </ul>
             </div>
-          </div>
+            <div class="dividline light-grey"></div>
         </nav>
-      </nav>
-    </header>
-  {% block body %}
-   <div class="container shift-down">
+        <!-- down nav -->
+        <nav class="navbar navbar-down">
+            <div class="container">
+                <div class="flex-container">
+                    <div class="navbar-header flex-item">
+                        <a class="navbar-brand" href="{% url 'list_article' %}">SofiArt</a>
+                    </div>
+                    <ul class="nav navbar-nav center-block flex-item hidden-xs">
+                        <li><a href="/">Список продуктів</a></li>
+                    </ul>
+                    <!-- dropdown only moblie -->
+                    <div class="dropdown visible-xs pull-right">
+                        <button class="btn btn-default dropdown-toggle " type="button" id="dropdownmenu"
+                                data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-align-justify"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">TheTeam</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">contact us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </nav>
+</header>
+{% block body %}
+<div class="container shift-down">
     {% block content %}
     {% endblock %}
-   </div>
-  {% endblock body %}
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/main_script.js' %}"></script>
-  {% block scripts %}
-  {% endblock scripts %}
-  </body>
-  <footer>
+</div>
+{% endblock body %}
+<script src="{% static 'js/main_script.js' %}"></script>
+{% block scripts %}
+{% endblock scripts %}
+</body>
+<footer>
 
-  </footer>
+</footer>
 </html>

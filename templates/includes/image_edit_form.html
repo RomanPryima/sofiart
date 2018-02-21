@@ -1,17 +1,17 @@
 {% load widget_tweaks %}
 {% for gallery_image in article.gallery_images.all %}
-    <div class="col-sm-4 g-image-card">
-        <div class="card-block" id="{{ gallery_image.pk }}">
-            {% if gallery_image.is_title == True %}
-                <input type="radio" name="is_title" value="{{ gallery_image.pk }}" checked > Основне зображення
-            {% else %}
-                <input type="radio" name="is_title" value="{{ gallery_image.pk }}" > Основне зображення
-            {% endif %}
-            <small class="card-title">{{ gallery_image.name }}</small>
-            <img class="card-img-top img-responsive" src="{{ gallery_image.image.url }}" alt="{{ gallery_image.name }}">
-            <button type="button" class="btn btn-danger pic-del">Видалити</button>
-        </div>
+<div class="col-lg-4 col-md-4 g-image-card">
+    <div class="card-block" id="{{ gallery_image.pk }}">
+        {% if gallery_image.is_title == True %}
+        <input type="radio" name="is_title" value="{{ gallery_image.pk }}" checked> Основне зображення
+        {% else %}
+        <input type="radio" name="is_title" value="{{ gallery_image.pk }}"> Основне зображення
+        {% endif %}
+        <small class="card-title">{{ gallery_image.name }}</small>
+        <img class="card-img-top img-responsive" src="{{ gallery_image.image.url }}" alt="{{ gallery_image.name }}">
+        <button type="button" class="btn btn-danger center-block pic-del">Видалити</button>
     </div>
+</div>
 {% endfor %}
 
 

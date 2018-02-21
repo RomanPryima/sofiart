@@ -1,5 +1,10 @@
 body {
- background-image: url(../img/pow-star.png);
+ background-image: url("https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J70T3LHQ2O.jpg");
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     background-attachment: fixed;
 }
 
 .logo {
@@ -13,4 +18,13 @@ body {
 .logo a:hover,
 .logo a:active {
  text-decoration: none;
+}
+
+h1, h2, h3 , h4, p, label{
+    color: #fff;
+}
+
+.center-element {
+    float: none;
+    margin: 0 auto;
 }
