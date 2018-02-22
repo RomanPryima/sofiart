@@ -1,38 +1,52 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block title %}
 {{ block.super }} - {{ article.name }}
 {% endblock %}
 
-{% block content %}
-    {% if user.is_staff %}
-    <div class="btn-group">
-        <a href="{% url 'edit_article' article.pk %}"  class="btn btn-primary">Редагувати продукт</a>
-     <form action="{% url 'delete_article' article.pk %}" method="post" style="display: inline;">
-       {% csrf_token %}
-       <button type="submit" class="btn btn-secondary">Видалити продукт</button>
-     </form>
-    </div>
-    {% endif %}
-      <div>
-          <h1>{{ article.name }} </h1>
-      </div>
-    <div>
-         <h3>{{ article.price }} </h3>
-    </div>
-    <div>
-        {% if title_image %}
-            <img src="{{ title_image.image.url }}" width='500' alt="{{ title_image.name }}">
-        {% endif %}
-    </div>
-      <div>
-        {{ article.description }}
-      </div>
-      <div>
-        {{ article.text }}
-      </div>
-      <div>
-        {% for galleryimage in gallery_images %}
-          <img src="{{ galleryimage.image.url }}" width='300' alt="{{ galleryimage.image.name }}">
-        {% endfor %}
-      </div>
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css">
 {% endblock %}
+
+{% block content %}
+{% if user.is_staff %}
+<div class="btn-group">
+    <a href="{% url 'edit_article' article.pk %}" class="btn btn-primary">Редагувати продукт</a>
+    <form action="{% url 'delete_article' article.pk %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-secondary">Видалити продукт</button>
+    </form>
+</div>
+{% endif %}
+<div class="text-white">
+    <h1 class="text-white">{{ article.name }} </h1>
+</div>
+<div>
+    <h3 class="text-white">{{ article.price }} </h3>
+</div>
+<div>
+    {% if title_image %}
+    <img src="{{ title_image.image.url }}" width='500' alt="{{ title_image.name }}">
+    {% endif %}
+</div>
+<div class="text-white">
+    {{ article.description }}
+</div>
+<div class="text-white">
+    {{ article.text }}
+</div>
+
+{% include 'includes/slider.html' %}
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'js/jquery.flexslider-min.js' %}"></script>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+  $('.flexslider').flexslider({
+    animation: "slide"
+  });
+});
+</script>
+{% endblock scripts %}

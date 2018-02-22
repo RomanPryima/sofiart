@@ -1,0 +1,23 @@
+{% load static %}
+<style>
+    @font-face {
+  font-family: 'flexslider-icon';
+  src: url({% static 'fonts/flexslider-icon.eot' %});
+  src: url({% static 'fonts/flexslider-icon.eot?#iefix' %}) format('embedded-opentype'),
+        url({% static 'fonts/flexslider-icon.woff' %}) format('woff'),
+        url({% static 'fonts/flexslider-icon.ttf' %}) format('truetype'),
+        url({% static 'fonts/flexslider-icon.svg#flexslider-icon' %}) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+</style>
+
+<div class="flexslider">
+        <ul class="slides">
+            {% for galleryimage in gallery_images %}
+            <li>
+                <img src="{{ galleryimage.image.url }}" width="300" alt="{{ galleryimage.image.name }}">
+            </li>
+            {% endfor %}
+        </ul>
+    </div>

@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block stylesheet %}
+    {% endblock %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    {% block stylesheet %}{% endblock %}
+
 </head>
 <body>
 <header>
@@ -33,7 +35,7 @@
                     <div class="dropdown">
                         <a class="dropdown-toggle transparent text-white" href="#" id="userMenu" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
-                            <h4>{{ user.username }}</h4>
+                            {{ user.username }}
                         </a>
                         <ul class="dropdown-menu">
                             <li>
