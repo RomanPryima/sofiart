@@ -20,14 +20,14 @@
 </div>
 {% endif %}
 <div class="text-white">
-    <h1 class="text-white">{{ article.name }} </h1>
+    <h1 class="text-white text-center">{{ article.name }} </h1>
 </div>
 <div>
-    <h3 class="text-white">{{ article.price }} </h3>
+    <p class="text-white text-right">Орієнтовна вартість {{ article.price }} грн.</p>
 </div>
-<div>
+<div class="center-element">
     {% if title_image %}
-    <img src="{{ title_image.image.url }}" width='500' alt="{{ title_image.name }}">
+    <img class="center-element img-responsive" src="{{ title_image.image.url }}" width='500' alt="{{ title_image.name }}">
     {% endif %}
 </div>
 <div class="text-white">
@@ -37,16 +37,20 @@
     {{ article.text }}
 </div>
 
-{% include 'includes/slider.html' %}
+<div class="row">
+    <div class="col-md-8 center-element">
+        {% include 'includes/slider.html' %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 center-element">
+        {% include 'includes/reviews.html' %}
+    </div>
+</div>
+
 {% endblock content %}
 
 {% block scripts %}
 <script src="{% static 'js/jquery.flexslider-min.js' %}"></script>
-<script type="text/javascript" charset="utf-8">
-$(document).ready(function() {
-  $('.flexslider').flexslider({
-    animation: "slide"
-  });
-});
-</script>
 {% endblock scripts %}

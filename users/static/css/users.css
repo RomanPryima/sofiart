@@ -23,8 +23,3 @@ body {
 h1, h2, h3 , h4, p, label{
     color: #fff;
 }
-
-.center-element {
-    float: none;
-    margin: 0 auto;
-}

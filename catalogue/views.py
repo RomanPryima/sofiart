@@ -3,7 +3,7 @@ from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from .forms import NewArticleForm
-from .models import Article, GalleryImage
+from .models import Article, GalleryImage, Review
 
 
 class ListArticleView(ListView):
@@ -30,7 +30,13 @@ class ArticleView(DetailView):
         context['article'] = article
         context['title_image'] = get_object_or_404(GalleryImage, article=article, is_title=True)
         context['gallery_images'] = GalleryImage.objects.filter(article=article, is_title=False)
+        context['article_reviews'] = Review.objects.filter(article=article, moderated=True)
         return context
+
+    def post(self, *args, **kwargs):
+        post_data = self.request.POST
+        Review().save(**post_data)
+        return redirect('article', pk=str(post_data.get('article')[0]))
 
 
 class NewArticleView(CreateView):
@@ -50,8 +56,9 @@ class NewArticleView(CreateView):
         if 'gallery_images' in post_files:
             for gallery_image in post_files.getlist('gallery_images'):
                 image = GalleryImage()
-                image.save(article=article, image=gallery_image,  name=gallery_image.name)
+                image.save(article=article, image=gallery_image, name=gallery_image.name)
         return redirect('edit_article', pk=article.pk)
+
 
 class EditArticleView(UpdateView):
     model = Article
@@ -61,11 +68,11 @@ class EditArticleView(UpdateView):
         post_data = self.request.POST
         post_files = self.request.FILES
         article = Article.objects.get(pk=self.kwargs.get('pk'))
-        article.name=post_data.get('name')
-        article.description=post_data.get('description')
-        article.text=post_data.get('text')
-        article.price=post_data.get('price')
-        article.creator=self.request.user
+        article.name = post_data.get('name')
+        article.description = post_data.get('description')
+        article.text = post_data.get('text')
+        article.price = post_data.get('price')
+        article.creator = self.request.user
         article.save()
         if 'gallery_images' in post_files:
             for gallery_image in post_files.getlist('gallery_images'):
@@ -80,14 +87,7 @@ class EditArticleView(UpdateView):
             gallery_image.set_title()
         return redirect('article', pk=article.pk)
 
+
 class DeleteArticleView(DeleteView):
     model = Article
     success_url = reverse_lazy('list_article')
-
-
-
-
-
-
-
-
