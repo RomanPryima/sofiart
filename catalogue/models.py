@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from django.contrib.auth.models import User, AnonymousUser
+from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from unidecode import unidecode
 
@@ -18,6 +18,13 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('article', kwargs={'pk': self.pk})
+
+    def get_context(self, context):
+        context['article'] = self
+        context['title_image'] = GalleryImage.objects.get(article=self, is_title=True)
+        context['gallery_images'] = GalleryImage.objects.filter(article=self, is_title=False)
+        context['review_list'] = Review.objects.filter(article=self)
+        return context
 
     def __str__(self):
         return self.name
@@ -66,7 +73,7 @@ class Review(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     not_registered_user = models.CharField(max_length=100, verbose_name='незареєстрований користувач')
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='review', verbose_name='відгук')
-    creator = models.ForeignKey(User, related_name='review', on_delete=models.CASCADE, default=None, verbose_name='Автор')
+    creator = models.CharField(max_length=100, default="Анонім", verbose_name='автор відгуку')
     text = models.TextField(max_length=1000, blank=True, verbose_name='Текст')
     email = models.EmailField(blank=True)
     moderated = models.BooleanField(default=True)
@@ -76,11 +83,8 @@ class Review(models.Model):
             self.text = str(kwargs.get('Message')[0])
             self.email = str(kwargs.get('email')[0])
             self.article = Article.objects.get(pk=str(kwargs.get('article')[0]))
-            try:
-                creator = User.objects.get(username=str(kwargs.get('Name')[0]))
-                self.creator = creator
-            except Exception:
-                pass
+            username=str(kwargs.get('Name')[0])
+            self.creator = username if username else "Анонім"
         super(Review, self).save()
 
     def set_approved(self):

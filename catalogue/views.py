@@ -27,16 +27,11 @@ class ArticleView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ArticleView, self).get_context_data(**kwargs)
         article = get_object_or_404(Article, pk=kwargs.get('object').pk)
-        context['article'] = article
-        context['title_image'] = get_object_or_404(GalleryImage, article=article, is_title=True)
-        context['gallery_images'] = GalleryImage.objects.filter(article=article, is_title=False)
-        context['article_reviews'] = Review.objects.filter(article=article, moderated=True)
-        return context
+        return article.get_context(context=context)
 
     def post(self, *args, **kwargs):
-        post_data = self.request.POST
-        Review().save(**post_data)
-        return redirect('article', pk=str(post_data.get('article')[0]))
+        Review().save(**self.request.POST)
+        return redirect('article', pk=str(self.request.POST.get('article')[0]))
 
 
 class NewArticleView(CreateView):

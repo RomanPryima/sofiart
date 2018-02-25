@@ -3,7 +3,7 @@
         <div class="spoiler-trigger" data-toggle="collapse"><h4>Відгуки</h4></div>
     </div>
     <div class="panel-collapse collapse out">
-        {% if article_reviews %}
+        {% if review_list %}
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="spoiler-trigger" data-toggle="collapse"><h4>Залиште свій відгук</h4></div>
@@ -45,7 +45,7 @@
 
             </div>
             <div class="panel-body">
-                {% for review in article_reviews %}
+                {% for review in review_list %}
                 <div class="card shadow">
                     <div class="card-header">
                         <p class="text-left"><strong>{{ review.creator }}</strong></p>

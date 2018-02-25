@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8ee57c3-59c2-4a92-820d-6a4ed0283e7b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/catalogue/static/css/flexslider.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/includes/reviews.html" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/catalogue/models.py" afterPath="$PROJECT_DIR$/catalogue/models.py" />
-      <change beforePath="$PROJECT_DIR$/catalogue/urls.py" afterPath="$PROJECT_DIR$/catalogue/urls.py" />
       <change beforePath="$PROJECT_DIR$/catalogue/views.py" afterPath="$PROJECT_DIR$/catalogue/views.py" />
-      <change beforePath="$PROJECT_DIR$/sofiart/static/css/style.css" afterPath="$PROJECT_DIR$/sofiart/static/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/sofiart/static/js/main_script.js" afterPath="$PROJECT_DIR$/sofiart/static/js/main_script.js" />
-      <change beforePath="$PROJECT_DIR$/templates/article.html" afterPath="$PROJECT_DIR$/templates/article.html" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/slider.html" afterPath="$PROJECT_DIR$/templates/includes/slider.html" />
-      <change beforePath="$PROJECT_DIR$/users/static/css/users.css" afterPath="$PROJECT_DIR$/users/static/css/users.css" />
+      <change beforePath="$PROJECT_DIR$/sofiart/settings.py" afterPath="$PROJECT_DIR$/sofiart/settings.py" />
+      <change beforePath="$PROJECT_DIR$/sofiart/urls.py" afterPath="$PROJECT_DIR$/sofiart/urls.py" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/reviews.html" afterPath="$PROJECT_DIR$/templates/includes/reviews.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,8 +20,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sofiart/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="955">
-              <caret line="384" column="12" lean-forward="false" selection-start-line="384" selection-start-column="12" selection-end-line="384" selection-end-column="12" />
+            <state relative-caret-position="77">
+              <caret line="323" column="0" lean-forward="false" selection-start-line="322" selection-start-column="20" selection-end-line="323" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -37,8 +30,8 @@
       <file leaf-file-name="reviews.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/includes/reviews.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="98" column="18" lean-forward="false" selection-start-line="98" selection-start-column="18" selection-end-line="98" selection-end-column="18" />
+            <state relative-caret-position="1548">
+              <caret line="86" column="48" lean-forward="true" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -47,18 +40,28 @@
       <file leaf-file-name="main_script.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sofiart/static/js/main_script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="38" column="53" lean-forward="true" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+            <state relative-caret-position="443">
+              <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/catalogue/urls.py">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sofiart/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="1134">
+              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/includes/form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="34" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -67,22 +70,10 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/catalogue/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="36" column="37" lean-forward="false" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
+            <state relative-caret-position="4">
+              <caret line="36" column="33" lean-forward="true" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/catalogue/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="66" column="100" lean-forward="false" selection-start-line="66" selection-start-column="100" selection-end-line="66" selection-end-column="100" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,10 +82,20 @@
       <file leaf-file-name="article.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/article.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+            <state relative-caret-position="-415">
+              <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/catalogue/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="25" column="68" lean-forward="false" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
               <folding>
-                <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,28 +104,8 @@
       <file leaf-file-name="slider.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/includes/slider.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="16" lean-forward="true" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/users/static/css/users.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            <state relative-caret-position="-18">
+              <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -143,14 +124,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>test_view_password_change</find>
-      <find>FILES</find>
       <find>PRo</find>
       <find>cata</find>
       <find>btn</find>
       <find>.container</find>
       <find>swa</find>
-      <find>dropdown</find>
       <find>dropdown-toggle</find>
       <find>bootst</find>
       <find>bootstrap.min</find>
@@ -173,6 +151,9 @@
       <find>authenti</find>
       <find>csrf</find>
       <find>hidde</find>
+      <find>commen</find>
+      <find>dropdown</find>
+      <find>article</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;</replace>
@@ -187,7 +168,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/templates/sign_up.html" />
-        <option value="$PROJECT_DIR$/sofiart/urls.py" />
         <option value="$PROJECT_DIR$/users/models.py" />
         <option value="$PROJECT_DIR$/catalogue/static/css/style.css" />
         <option value="$PROJECT_DIR$/templates/home_page.html" />
@@ -214,7 +194,6 @@
         <option value="$PROJECT_DIR$/catalogue/admin.py" />
         <option value="$PROJECT_DIR$/catalogue/forms.py" />
         <option value="$PROJECT_DIR$/templates/new_article.html" />
-        <option value="$PROJECT_DIR$/sofiart/settings.py" />
         <option value="$PROJECT_DIR$/templates/base_users.html" />
         <option value="$PROJECT_DIR$/templates/signup.html" />
         <option value="$PROJECT_DIR$/templates/login.html" />
@@ -229,8 +208,10 @@
         <option value="$PROJECT_DIR$/sofiart/static/js/main_script.js" />
         <option value="$PROJECT_DIR$/sofiart/static/css/style.css" />
         <option value="$PROJECT_DIR$/catalogue/urls.py" />
-        <option value="$PROJECT_DIR$/templates/includes/reviews.html" />
+        <option value="$PROJECT_DIR$/sofiart/urls.py" />
+        <option value="$PROJECT_DIR$/sofiart/settings.py" />
         <option value="$PROJECT_DIR$/catalogue/views.py" />
+        <option value="$PROJECT_DIR$/templates/includes/reviews.html" />
         <option value="$PROJECT_DIR$/catalogue/models.py" />
       </list>
     </option>
@@ -269,6 +250,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -346,14 +328,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="url&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/catalogue/urls.py&#10;a&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/article.html&#10;models&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/catalogue/models.py&#10;user&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/static/css/users.css&#10;login&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/login.html&#10;users&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/static/css/users.css&#10;new&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/new_article.html&#10;list&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/list_article.html&#10;setti&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/sofiart/settings.py&#10;ma&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/sofiart/static/js/main_script.js&#10;base&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/base.html&#10;signup&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/signup.html&#10;settings&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/sofiart/settings.py&#10;sig&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/signup.html&#10;users.css&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/static/css/users.css&#10;pass&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/password_reset.html&#10;admin&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/catalogue/admin.py&#10;setting&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/sofiart/settings.py&#10;urls&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/urls.py&#10;widg&#9;null&#9;null&#10;forms&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/forms.py&#10;sett&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/sofiart/settings.py&#10;settin&#9;null&#9;null&#10;test&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/tests.py&#10;model&#9;FILE&#9;file:///home/roman/Projects/Sofia/sofiart/catalogue/models.py&#10;ho&#9;FILE&#9;file:///home/roman/Projects/Sofia/sofiart/templates/home_page.html" />
+    <property name="SearchEverywhereHistoryKey" value="art&#9;FILE&#9;file:///home/roman/Projects/Sofia/sofiart/templates/article.html&#10;url&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/catalogue/urls.py&#10;a&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/article.html&#10;models&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/catalogue/models.py&#10;user&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/static/css/users.css&#10;login&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/login.html&#10;users&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/static/css/users.css&#10;new&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/new_article.html&#10;list&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/list_article.html&#10;setti&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/sofiart/settings.py&#10;ma&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/sofiart/static/js/main_script.js&#10;base&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/base.html&#10;signup&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/signup.html&#10;settings&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/sofiart/settings.py&#10;sig&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/signup.html&#10;users.css&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/static/css/users.css&#10;pass&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/templates/password_reset.html&#10;admin&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/catalogue/admin.py&#10;setting&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/sofiart/settings.py&#10;urls&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/urls.py&#10;widg&#9;null&#9;null&#10;forms&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/forms.py&#10;sett&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/sofiart/settings.py&#10;settin&#9;null&#9;null&#10;test&#9;FILE&#9;file:///home/rpryi/Projects/Sofia/sofiart/users/tests.py&#10;model&#9;FILE&#9;file:///home/roman/Projects/Sofia/sofiart/catalogue/models.py&#10;ho&#9;FILE&#9;file:///home/roman/Projects/Sofia/sofiart/templates/home_page.html" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -404,9 +385,10 @@
     <option name="totallyTimeSpent" value="17828000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="58" y="-8" width="1082" height="1929" extended-state="6" />
+    <frame x="58" y="-8" width="1303" height="780" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983795" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299028" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -414,16 +396,27 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38136077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38102645" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38136077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983795" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299028" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -461,13 +454,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../sofia/lib/python3.5/site-packages/django/views/generic/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="49" column="8" lean-forward="false" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/users/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -665,13 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sofiart/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="102" column="73" lean-forward="false" selection-start-line="102" selection-start-column="73" selection-end-line="102" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/list_article.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -693,20 +672,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/woocommerce-FlexSlider-91e323d/demo/basic-slider-with-caption.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/woocommerce-FlexSlider-91e323d/demo/basic-slider-with-caption.html" />
     <entry file="file://$PROJECT_DIR$/catalogue/static/js/jquery.flexslider-min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -739,7 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,24 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/article.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/slider.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="16" lean-forward="true" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -779,50 +726,90 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sofiart/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="955">
-          <caret line="384" column="12" lean-forward="false" selection-start-line="384" selection-start-column="12" selection-end-line="384" selection-end-column="12" />
+        <state relative-caret-position="77">
+          <caret line="323" column="0" lean-forward="false" selection-start-line="322" selection-start-column="20" selection-end-line="323" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sofiart/static/js/main_script.js">
+    <entry file="file://$PROJECT_DIR$/sofiart/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="38" column="53" lean-forward="true" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/reviews.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="98" column="18" lean-forward="false" selection-start-line="98" selection-start-column="18" selection-end-line="98" selection-end-column="18" />
+        <state relative-caret-position="97">
+          <caret line="25" column="36" lean-forward="false" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalogue/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="34" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sofiart/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sofiart/static/js/main_script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/slider.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="2" column="16" lean-forward="false" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/catalogue/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="36" column="37" lean-forward="false" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
+        <state relative-caret-position="4">
+          <caret line="36" column="33" lean-forward="true" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/article.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-415">
+          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/reviews.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1548">
+          <caret line="86" column="48" lean-forward="true" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/catalogue/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="66" column="100" lean-forward="false" selection-start-line="66" selection-start-column="100" selection-end-line="66" selection-end-column="100" />
+        <state relative-caret-position="220">
+          <caret line="25" column="68" lean-forward="false" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
