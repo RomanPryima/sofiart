@@ -4,99 +4,105 @@
     </div>
     <div class="panel-collapse collapse out">
         {% if review_list %}
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="spoiler-trigger" data-toggle="collapse"><h4>Залиште свій відгук</h4></div>
-            </div>
-            <div class="panel-body"></div>
-                <form role="form" id="contact-form" action="{% url 'article_review' %}"  method="post"  class="contact-form">
-                    {% csrf_token %}
-                    <div class="row">
-                		<div class="col-md-6">
-                        {% if user.is_authenticated %}
-                           <h4 class="text-center"><strong>{{ user.get_username }}</strong></h4>
-                           <input type="hidden" name="Name" value="{{ user.get_username }}">
-                        {% else %}
-                  		<div class="form-group">
-                            <input type="text" class="form-control" name="Name" autocomplete="off" id="Name" placeholder="Ім'я">
-                  		</div>
-                        {% endif %}
-                  	</div>
-                    	<div class="col-md-6">
-                  		<div class="form-group">
-                            <input type="email" class="form-control" name="email" autocomplete="off" id="email" placeholder="E-mail">
-                            <input type="hidden" name="article" value="{{ article.pk }}">
-                        </div>
-                  	</div>
-                  	</div>
-                  	<div class="row">
-                  		<div class="col-md-12">
-                  		<div class="form-group">
-                            <textarea class="form-control textarea" rows="3" name="Message" id="Message" placeholder="Відгук"></textarea>
-                  		</div>
-                  	</div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-12">
-                  <button type="submit" class="btn-dark main-btn pull-right">Надіслати</button>
-                  </div>
-                  </div>
-                </form>
-
-            </div>
-            <div class="panel-body">
-                {% for review in review_list %}
-                <div class="card shadow">
-                    <div class="card-header">
-                        <p class="text-left"><strong>{{ review.creator }}</strong></p>
-                        <p class="text-right">{{ review.created }}</p>
-                    </div>
-                    <div class="card-block">
-                        <p class="card-text text-left">{{ review.text }}</p>
-                    </div>
+        <div class="panel-body">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="spoiler-trigger" data-toggle="collapse"><h4>Залиште свій відгук</h4></div>
                 </div>
-                {% endfor %}
-            </div>
-            {% else %}
-            <div class="panel-heading">
-                <div class="spoiler-trigger" data-toggle="collapse"><h4>Залиште свій відгук першими</h4></div>
-            </div>
-            <div class="panel-body"></div>
-                <form role="form" id="contact-form" action="{% url 'article_review' %}"  method="post"  class="contact-form">
-                    {% csrf_token %}
-                    <div class="row">
-                		<div class="col-md-6">
-                        {% if user.is_authenticated %}
-                           <h4 class="text-center"><strong>{{ user.get_username }}</strong></h4>
-                           <input type="hidden" name="Name" value="{{ user.get_username }}">
-                        {% else %}
-                  		<div class="form-group">
-                            <input type="text" class="form-control" name="Name" autocomplete="off" id="Name" placeholder="Ім'я">
-                  		</div>
-                        {% endif %}
-                  	</div>
-                    	<div class="col-md-6">
-                  		<div class="form-group">
-                            <input type="email" class="form-control" name="email" autocomplete="off" id="email" placeholder="E-mail">
-                            <input type="hidden" name="article" value="{{ article.pk }}">
+                <div class="panel-collapse collapse out">
+                    <div class="panel-body"></div>
+                    <form role="form" id="contact-form" action="{% url 'article_review' %}" method="post" class="contact-form">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                {% if user.is_authenticated %}
+                                <h4 class="text-center"><strong>{{ user.get_username }}</strong></h4>
+                                <input type="hidden" name="Name" value="{{ user.get_username }}">
+                                {% else %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="Name" autocomplete="off" id="Name"
+                                           placeholder="Ім'я">
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="email" autocomplete="off" id="email"
+                                           placeholder="E-mail">
+                                    <input type="hidden" name="article" value="{{ article.pk }}">
+                                </div>
+                            </div>
                         </div>
-                  	</div>
-                  	</div>
-                  	<div class="row">
-                  		<div class="col-md-12">
-                  		<div class="form-group">
-                            <textarea class="form-control textarea" rows="3" name="Message" id="Message" placeholder="Відгук"></textarea>
-                  		</div>
-                  	</div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-12">
-                  <button type="submit" class="btn-dark main-btn pull-right">Надіслати</button>
-                  </div>
-                  </div>
-                </form>
-
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                    <textarea class="form-control textarea" rows="3" name="Message" id="Message"
+                              placeholder="Відгук"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn-dark main-btn pull-right">Надіслати</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            {% endif %}
         </div>
+        {% for review in review_list %}
+        <div class="card shadow">
+            <div class="card-header">
+                <p class="text-left"><strong>{{ review.creator }}</strong></p>
+                <p class="text-right">{{ review.created }}</p>
+            </div>
+            <div class="card-block">
+                <p class="card-text text-left">{{ review.text }}</p>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+    {% else %}
+    <div class="panel-heading">
+        <div class="spoiler-trigger" data-toggle="collapse"><h4>Залиште свій відгук першими</h4></div>
+    </div>
+    <div class="panel-body"></div>
+    <form role="form" id="contact-form" action="{% url 'article_review' %}" method="post" class="contact-form">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6">
+                {% if user.is_authenticated %}
+                <h4 class="text-center"><strong>{{ user.get_username }}</strong></h4>
+                <input type="hidden" name="Name" value="{{ user.get_username }}">
+                {% else %}
+                <div class="form-group">
+                    <input type="text" class="form-control" name="Name" autocomplete="off" id="Name" placeholder="Ім'я">
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" autocomplete="off" id="email"
+                           placeholder="E-mail">
+                    <input type="hidden" name="article" value="{{ article.pk }}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                        <textarea class="form-control textarea" rows="3" name="Message" id="Message"
+                                  placeholder="Відгук"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn-dark main-btn pull-right">Надіслати</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+{% endif %}
+</div>
