@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{% block title %}Sofiart{% endblock %}</title>
     <link href='https://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     {% block stylesheet %}
     {% endblock %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -31,37 +34,21 @@
                     {% if user.is_authenticated %}
                     <div class="dropdown">
                         <a class="dropdown-toggle transparent text-white" href="#" id="userMenu" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            {{ user.username }}
-                        </a>
+                           aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <div aria-labelledby="userMenu">
-                                    <a class="dropdown-item transparent text-white text-center"
-                                       href="{% url 'password_change' %}">Змінити пароль</a>
+                            <li><a class="dropdown-item transparent text-white text-center" href="{% url 'password_change' %}">Змінити пароль</a></li>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item transparent text-white text-center"
-                                       href="{% url 'logout' %}">Вийти</a>
-                                </div>
-                            </li>
+                            <li><a class="dropdown-item transparent text-white text-center" href="{% url 'logout' %}">Вийти</a></li>
                         </ul>
                     </div>
                     {% else %}
                     <div class="dropdown transparent">
                         <a class="dropdown-toggle transparent text-white" href="#" id="loginMenu" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            <h4 class="text-white">Вхід</h4>
-                        </a>
+                           aria-haspopup="true" aria-expanded="false">Вхід</a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <div aria-labelledby="userMenu">
-                                    <a class="dropdown-item text-white text-center"
-                                       href="{% url 'login' %}">Увійти</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item text-white text-center"
-                                       href="{% url 'signup' %}">Зареєструватися</a>
-                                </div>
-                            </li>
+                            <li><a class="dropdown-item text-white text-center" href="{% url 'login' %}">Увійти</a></li>
+                                <div class="dropdown-divider"></div>
+                            <li><a class="dropdown-item text-white text-center" href="{% url 'signup' %}">Зареєструватися</a></li>
                         </ul>
                     </div>
                     {% endif %}
@@ -86,11 +73,15 @@
                             <span class="glyphicon glyphicon-align-justify"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Pricing</a></li>
-                            <li><a href="#">TheTeam</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">contact us</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a class="dropdown-item transparent text-white text-center" href="{% url 'password_change' %}">Змінити пароль</a></li>
+                                    <div class="dropdown-divider"></div>
+                            <li><a class="dropdown-item transparent text-white text-center" href="{% url 'logout' %}">Вийти</a></li>
+                            {% else %}
+                           <li><a class="dropdown-item text-white text-center" href="{% url 'login' %}">Увійти</a></li>
+                                <div class="dropdown-divider"></div>
+                            <li><a class="dropdown-item text-white text-center" href="{% url 'signup' %}">Зареєструватися</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>

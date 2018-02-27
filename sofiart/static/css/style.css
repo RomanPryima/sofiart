@@ -232,7 +232,6 @@ p {
 /*top nav*/
 .navbar-doublerow .navbar-top ul>li>a {
 	padding: 10px auto;
-	font-size: 12px;
 }
 /*down nav*/
 .navbar-doublerow .navbar-down .navbar-brand {
@@ -285,7 +284,7 @@ p {
 .light-grey {color:#000!important;background-color:#E6E9ED!important}
 
 .shift-down{
-    margin-top: 10%;
+    margin-top: 12.5%;
 }
 
 .pagination > li > a, .pagination > .disabled > a{
@@ -318,15 +317,27 @@ p {
 }
 
 .dropdown,{
-    font-family: 'Oswald';
-    letter-spacing: 3px;
-    font-size: 1.2em;
+
 }
 
 .dropdown-item, .dropdown-toggle, .dropdown-menu{
-    font-size: 1.2em;
+    font-family: 'Oswald';
+    font-size: 1.1em;
+    letter-spacing: 3px;
     padding-left: 3%;
     background-color: #00264d;
+}
+
+.dropdown-toggle{
+    padding-top: 5%;
+    font-size: 1.3em;
+}
+
+.dropdown-menu {
+  left: 50%;
+  right: auto;
+  text-align: left;
+  transform: translate(-50%, 0);
 }
 
 .transparent, .transparent:focus, .transparent:hover{
@@ -383,4 +394,8 @@ panel panel-default{
 
 .contact-form{
     margin: 3%;
+}
+
+.glyphicon{
+    margin-left: 35%;
 }
