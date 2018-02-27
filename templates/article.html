@@ -27,13 +27,13 @@
 </div>
 <div class="center-element">
     {% if title_image %}
-    <img class="center-element img-responsive" src="{{ title_image.image.url }}" width='500' alt="{{ title_image.name }}">
+    <img class="center-element img-responsive" src="{{ title_image.image.url }}" width='100%' alt="{{ title_image.name }}">
     {% endif %}
 </div>
-<div class="text-white">
+<div class="description-section">
     {{ article.description }}
 </div>
-<div class="text-white">
+<div class="text-section">
     {{ article.text }}
 </div>
 
@@ -48,6 +48,7 @@
         {% include 'includes/reviews.html' %}
     </div>
 </div>
+
 
 {% endblock content %}
 

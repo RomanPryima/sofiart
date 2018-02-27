@@ -30,7 +30,7 @@ $(".spoiler-trigger").click(function() {
     $(this).parent().next().collapse('toggle');
 });
 
-$('#contact-form').bootstrapValidator({
+$('#review-form').bootstrapValidator({
 //        live: 'disabled',
         message: 'This value is not valid',
         feedbackIcons: {

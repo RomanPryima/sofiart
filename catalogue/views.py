@@ -39,6 +39,7 @@ class NewArticleView(CreateView):
     form_class = NewArticleForm
 
     def form_valid(self, *args, **kwargs):
+        
         post_data = self.request.POST
         post_files = self.request.FILES
         article = Article(name=post_data.get('name'),

@@ -33,9 +33,6 @@
         <div class="sofiart" style="background-image: url('{{ gallery_image.image.url }}')">
       {% endif %}
     {% endfor %}
-    <figure>
-      <img class="sofiart__img" src="http://nethouse.ru/static/img/0000/0002/2357/22357613.318jjmjcw9.W215.svg" alt="logo text" />
-    </figure>
     <div class="sofiart__overlay">
       <h2 class="sofiart__title">{{ article.name }}</h2>
       <a class="sofiart__link" href="{% url 'article' article.pk %}">Переглянути {{ article.name }}</a>

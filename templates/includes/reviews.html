@@ -11,7 +11,7 @@
                 </div>
                 <div class="panel-collapse collapse out">
                     <div class="panel-body"></div>
-                    <form role="form" id="contact-form" action="{% url 'article_review' %}" method="post" class="contact-form">
+                    <form role="form" id="review-form" action="{% url 'article_review' %}" method="post" class="contact-form">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6">
@@ -67,7 +67,7 @@
         <div class="spoiler-trigger" data-toggle="collapse"><h4>Залиште свій відгук першими</h4></div>
     </div>
     <div class="panel-body"></div>
-    <form role="form" id="contact-form" action="{% url 'article_review' %}" method="post" class="contact-form">
+    <form role="form" id="review-form" action="{% url 'article_review' %}" method="post" class="contact-form">
         {% csrf_token %}
         <div class="row">
             <div class="col-md-6">
