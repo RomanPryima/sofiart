@@ -14,7 +14,7 @@
 {% endif %}
 {% for field in form %}
   <div class="form-group">
-    {{ field.label_tag }}
+    <div class="text-white">{{ field.label_tag }}</div>
     {% render_field field class=field|input_class %}
     {% for error in field.errors %}
       <div class="invalid-feedback">
@@ -23,7 +23,7 @@
     {% endfor %}
 
     {% if field.help_text %}
-      <small class="form-text text-muted">
+      <small class="form-text text-white">
         {{ field.help_text|safe }}
       </small>
     {% endif %}

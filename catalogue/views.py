@@ -2,8 +2,8 @@ from django.db.models.query import Q
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
-from .forms import NewArticleForm
-from .models import Article, GalleryImage, Review
+from .forms import *
+from .models import *
 
 
 class ListArticleView(ListView):
@@ -21,16 +21,19 @@ class ListArticleView(ListView):
         return result
 
 
-class ArticleView(DetailView):
+class ArticleView(UpdateView):
     model = Article
+    form_class = ReviewForm
 
     def get_context_data(self, **kwargs):
         context = super(ArticleView, self).get_context_data(**kwargs)
-        article = get_object_or_404(Article, pk=kwargs.get('object').pk)
+        article = get_object_or_404(Article, pk=self.kwargs.get('pk'))
         return article.get_context(context=context)
 
-    def post(self, *args, **kwargs):
-        Review().save(**self.request.POST)
+    def form_valid(self, *args, **kwargs):
+        import pdb
+        pdb.set_trace()
+        Review().save()
         return redirect('article', pk=str(self.request.POST.get('article')[0]))
 
 
@@ -39,7 +42,7 @@ class NewArticleView(CreateView):
     form_class = NewArticleForm
 
     def form_valid(self, *args, **kwargs):
-        
+
         post_data = self.request.POST
         post_files = self.request.FILES
         article = Article(name=post_data.get('name'),
@@ -53,6 +56,8 @@ class NewArticleView(CreateView):
             for gallery_image in post_files.getlist('gallery_images'):
                 image = GalleryImage()
                 image.save(article=article, image=gallery_image, name=gallery_image.name)
+        else:
+            GalleryImage(article=article, image="")
         return redirect('edit_article', pk=article.pk)
 
 
@@ -61,27 +66,8 @@ class EditArticleView(UpdateView):
     form_class = NewArticleForm
 
     def form_valid(self, *args, **kwargs):
-        post_data = self.request.POST
-        post_files = self.request.FILES
-        article = Article.objects.get(pk=self.kwargs.get('pk'))
-        article.name = post_data.get('name')
-        article.description = post_data.get('description')
-        article.text = post_data.get('text')
-        article.price = post_data.get('price')
-        article.creator = self.request.user
-        article.save()
-        if 'gallery_images' in post_files:
-            for gallery_image in post_files.getlist('gallery_images'):
-                image = GalleryImage()
-                image.save(article=article, image=gallery_image, name=gallery_image.name)
-        if 'g_image_to_delete' in post_data:
-            for image_id in post_data.getlist('g_image_to_delete'):
-                gallery_image = GalleryImage.objects.get(pk=image_id)
-                gallery_image.delete()
-        if 'is_title' in post_data:
-            gallery_image = GalleryImage.objects.get(pk=post_data.get('is_title'))
-            gallery_image.set_title()
-        return redirect('article', pk=article.pk)
+        pk = Article.update(self)
+        return redirect('article', pk=pk)
 
 
 class DeleteArticleView(DeleteView):

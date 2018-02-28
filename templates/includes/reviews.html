@@ -1,3 +1,5 @@
+{% load form_tags widget_tweaks %}
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <div class="spoiler-trigger" data-toggle="collapse"><h4>Відгуки</h4></div>
@@ -11,7 +13,7 @@
                 </div>
                 <div class="panel-collapse collapse out">
                     <div class="panel-body"></div>
-                    <form role="form" id="review-form" action="{% url 'article_review' %}" method="post" class="contact-form">
+                    <form role="form" id="review-form" action="{% url 'add_review' %}" method="post" class="contact-form">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6">
@@ -36,8 +38,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                    <textarea class="form-control textarea" rows="3" name="Message" id="Message"
-                              placeholder="Відгук"></textarea>
+                                    {% render_field form.text %}
                                 </div>
                             </div>
                         </div>

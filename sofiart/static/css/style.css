@@ -382,3 +382,9 @@ body{
             column-count: 2;
 
 }
+
+.card-title{
+    color: #fff;
+    font-size: 1.2em;
+    padding: 2% 2% 2% 2%;
+}

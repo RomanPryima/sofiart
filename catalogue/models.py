@@ -1,7 +1,7 @@
-from django.db import models
-from django.urls import reverse
 from django.contrib.auth.models import User
+from django.db import models
 from django.template.defaultfilters import slugify
+from django.urls import reverse
 from unidecode import unidecode
 
 
@@ -10,7 +10,7 @@ class Article(models.Model):
     name = models.CharField(max_length=45, blank=False, verbose_name='Назва')
     slug = models.SlugField(unique=False, blank=True, editable=False)
     description = models.CharField(max_length=200, blank=True, verbose_name='Опис')
-    text = models.TextField(max_length=1500, blank=True, verbose_name='Текст')
+    text = models.TextField(max_length=2500, blank=True, verbose_name='Текст')
     price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, default=0.00, verbose_name='Ціна')
     updated = models.DateTimeField(auto_now=True, blank=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
@@ -36,6 +36,29 @@ class Article(models.Model):
         self.slug = slugify(unidecode(self.name))
         super(Article, self).save(*args, **kwargs)
 
+    def update(self):
+        post_data = self.request.POST
+        post_files = self.request.FILES
+        article = Article.objects.get(pk=self.kwargs.get('pk'))
+        article.name = post_data.get('name')
+        article.description = post_data.get('description')
+        article.text = post_data.get('text')
+        article.price = post_data.get('price')
+        article.creator = self.request.user
+        article.save()
+        if 'gallery_images' in post_files:
+            for gallery_image in post_files.getlist('gallery_images'):
+                image = GalleryImage()
+                image.save(article=article, image=gallery_image, name=gallery_image.name)
+        if 'g_image_to_delete' in post_data:
+            for image_id in post_data.getlist('g_image_to_delete'):
+                gallery_image = GalleryImage.objects.get(pk=image_id)
+                gallery_image.delete()
+        if 'is_title' in post_data:
+            gallery_image = GalleryImage.objects.get(pk=post_data.get('is_title'))
+            gallery_image.set_title()
+        return article.pk
+
     class Meta:
         ordering = ('-updated',)
 
@@ -49,7 +72,7 @@ class GalleryImage(models.Model):
 
     def save(self, *args, **kwargs):
         if kwargs:
-            self.name = slugify(unidecode(self.name))
+            self.name = slugify(unidecode(kwargs.get('name')))
             self.article = kwargs.get('article')
             self.image = kwargs.get('image')
         super(GalleryImage, self).save()
@@ -79,6 +102,9 @@ class Review(models.Model):
     moderated = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
+
+        import pdb
+        pdb.set_trace()
         if kwargs:
             self.text = str(kwargs.get('Message')[0])
             self.email = str(kwargs.get('email')[0])

@@ -2,12 +2,16 @@
 <div class="col-lg-4 col-md-4 g-image-card">
     <div class="card-block" id="{{ gallery_image.pk }}">
         {% if gallery_image.is_title == True %}
-        <input type="radio" name="is_title" value="{{ gallery_image.pk }}" checked> Основне зображення
+        <label class="btn active btn-md form-check-label">
+            <input type="radio" class="form-check-input" autocomplete="off" name="is_title" value="{{ gallery_image.pk }}" checked> Основне зображення
+        </label>
         {% else %}
-        <input type="radio" name="is_title" value="{{ gallery_image.pk }}"> Основне зображення
+        <label class="btn btn-md form-check-label">
+            <input type="radio" class="form-check-input" autocomplete="off" name="is_title" value="{{ gallery_image.pk }}"> Основне зображення
+        </label>
         {% endif %}
-        <small class="card-title">{{ gallery_image.name }}</small>
         <img class="card-img-top img-responsive" src="{{ gallery_image.image.url }}" alt="{{ gallery_image.name }}">
+        <small class="card-title"><strong>{{ gallery_image.name }}</strong></small>
         <button type="button" class="btn btn-danger center-block pic-del">Видалити</button>
     </div>
 </div>
