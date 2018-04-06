@@ -30,11 +30,12 @@ class ArticleView(UpdateView):
         article = get_object_or_404(Article, pk=self.kwargs.get('pk'))
         return article.get_context(context=context)
 
-    def form_valid(self, *args, **kwargs):
-        import pdb
-        pdb.set_trace()
-        Review().save()
+    def post(self, *args, **kwargs):
+        Review().save(self.request.POST)
         return redirect('article', pk=str(self.request.POST.get('article')[0]))
+
+    def form_valid(self):
+        return bool(self.request.POST.get('Message') and self.request.POST.get('article'))
 
 
 class NewArticleView(CreateView):
@@ -57,7 +58,7 @@ class NewArticleView(CreateView):
                 image = GalleryImage()
                 image.save(article=article, image=gallery_image, name=gallery_image.name)
         else:
-            GalleryImage(article=article, image="")
+            GalleryImage(article=article, image='')
         return redirect('edit_article', pk=article.pk)
 
 

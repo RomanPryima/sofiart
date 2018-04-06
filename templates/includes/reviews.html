@@ -38,7 +38,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    {% render_field form.text %}
+                                    <textarea class="form-control textarea" rows="3" name="Message" id="Message"
+                                              placeholder="Відгук"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -53,9 +54,13 @@
         </div>
         {% for review in review_list %}
         <div class="card shadow">
-            <div class="card-header">
-                <p class="text-left"><strong>{{ review.creator }}</strong></p>
-                <p class="text-right">{{ review.created }}</p>
+            <div>
+                <div class="col-md-6 card-header">
+                    <p class="text-left"><strong>{{ review.creator }}</strong></p>
+                </div>
+                <div class="col-md-6 card-header">
+                    <p class="text-right">{{ review.created }}</p>
+                </div>
             </div>
             <div class="card-block">
                 <p class="card-text text-left">{{ review.text }}</p>
@@ -68,7 +73,7 @@
         <div class="spoiler-trigger" data-toggle="collapse"><h4>Залиште свій відгук першими</h4></div>
     </div>
     <div class="panel-body"></div>
-    <form role="form" id="review-form" action="{% url 'article_review' %}" method="post" class="contact-form">
+    <form role="form" id="review-form" action="{% url 'add_review' %}" method="post" class="contact-form">
         {% csrf_token %}
         <div class="row">
             <div class="col-md-6">

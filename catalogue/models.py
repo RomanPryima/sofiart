@@ -101,15 +101,15 @@ class Review(models.Model):
     email = models.EmailField(blank=True)
     moderated = models.BooleanField(default=True)
 
-    def save(self, *args, **kwargs):
+    def save(self, query_dict=None):
+        if query_dict:
 
-        import pdb
-        pdb.set_trace()
-        if kwargs:
-            self.text = str(kwargs.get('Message')[0])
-            self.email = str(kwargs.get('email')[0])
-            self.article = Article.objects.get(pk=str(kwargs.get('article')[0]))
-            username=str(kwargs.get('Name')[0])
+            import pdb
+            pdb.set_trace()
+            self.text = query_dict.get('Message')
+            self.email = query_dict.get('email')
+            self.article = Article.objects.get(pk=query_dict.get('article'))
+            username=query_dict.get('Name')
             self.creator = username if username else "Анонім"
         super(Review, self).save()
 

@@ -7,66 +7,74 @@
 {% endblock %}
 
 {% block stylesheet %}
-<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script>
 {% endblock %}
 
 {% block content %}
 {% if user.is_staff %}
-  <a class="btn btn-default" href="{% url 'new_article' %}">Створити новий</a>
+<a class="btn btn-default" href="{% url 'new_article' %}">Створити новий</a>
 {% endif %}
 
 <div class="col-md-4 pull-right">
-    <form  id="searchform" action="{% url 'list_article' %}" method="get" accept-charset="utf-8">
-      <input class="searchfield col-md-8 col-sm-3" id="searchbox" name="q" type="text" placeholder="Пошук">
-      <button type="submit" class=" btn btn-default border-0">
-        <span class="glyphicon glyphicon-search"></span>
-      </button>
+    <form id="searchform" action="{% url 'list_article' %}" method="get" accept-charset="utf-8">
+        <input class="searchfield col-md-8 col-sm-3" id="searchbox" name="q" type="text" placeholder="Пошук">
+        <button type="submit" class=" btn btn-default border-0">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
     </form>
 </div>
 
 <div class="sofiart-gallery">
-  <h1 class="title">SOFIART</h1>
+    <h1 class="title">SOFIART</h1>
 
-  {% for article in articles %}
+    {% for article in articles %}
     {% for gallery_image in article.gallery_images.all %}
-      {% if gallery_image.is_title %}
-        <div class="sofiart" style="background-image: url('{{ gallery_image.image.url }}')">
-      {% endif %}
-    {% endfor %}
-    <div class="sofiart__overlay">
-      <h2 class="sofiart__title">{{ article.name }}</h2>
-      <a class="sofiart__link" href="{% url 'article' article.pk %}">Переглянути {{ article.name }}</a>
+    {% if gallery_image.is_title %}
+    <div class="sofiart" style="background-image: url('{{ gallery_image.image.url }}')">
+        {% endif %}
+        {% endfor %}
+        <div class="sofiart__overlay">
+            <h2 class="sofiart__title">{{ article.name }}</h2>
+            <a class="sofiart__link" href="{% url 'article' article.pk %}">Переглянути {{ article.name }}</a>
+        </div>
     </div>
-  </div>
-  {% endfor %}
+    {% endfor %}
 
-  {% if is_paginated %}
-      <nav aria-label="Page navigation" class="text-center">
-          <ul class="pagination justify-content-center pagination-sm">
-              {% if page_obj.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" href="{% url 'list_article' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Попередня</a>
-                </li>
-              {% else %}
-              <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">Попередня</a>
-              </li>
-              {% endif %}
-              {% for object in page_obj.paginator.page_range %}
-                  <li class="page-item"><a class="page-link" href="{% url 'list_article' %}?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
-              {% endfor %}
-              {% if page_obj.has_next %}
-                <li class="page-item">
-                    <a class="page-link" href="{% url 'list_article' %}?page={{ page_obj.next_page_number }}">Наступна</a>
-                </li>
-              {% else %}
-              <li class="page-item disabled">
-                  <a class="page-link" href="#">Наступна</a>
-              </li>
-              {% endif %}
-          </ul>
-      </nav>
-  {% endif %}
+    {% if not articles %}
+        <div class="center-block">
+            <h2 class="text-white text-center">Вибачте, за вашим запитом нічого не знайдено.</h2>
+        </div>
+    {% endif %}
+
+    {% if is_paginated %}
+    <nav aria-label="Page navigation" class="text-center">
+        <ul class="pagination justify-content-center pagination-sm">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="{% url 'list_article' %}?page={{ page_obj.previous_page_number }}" tabindex="-1">Попередня</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Попередня</a>
+            </li>
+            {% endif %}
+            {% for object in page_obj.paginator.page_range %}
+            <li class="page-item"><a class="page-link" href="{% url 'list_article' %}?page={{ forloop.counter }}">{{
+                forloop.counter }}</a></li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="{% url 'list_article' %}?page={{ page_obj.next_page_number }}">Наступна</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#">Наступна</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
 </div>
 {% endblock %}
 
