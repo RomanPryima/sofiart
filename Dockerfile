@@ -4,6 +4,13 @@ COPY . /opt/django/sofiart
 COPY sofiart_nginx.conf /etc/nginx/sites-available/
 WORKDIR /opt/django/sofiart
 
+ENV SECRET_KEY=""
+ENV RDS_DB_NAME=""
+ENV RDS_USERNAME=""
+ENV RDS_PASSWORD=""
+ENV RDS_HOSTNAME=""
+ENV RDS_PORT=""
+
 RUN apt update && \
     apt install nginx -y && \
     pip install --upgrade pip && \
