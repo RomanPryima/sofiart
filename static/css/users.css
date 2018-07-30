@@ -1,0 +1,25 @@
+body {
+ background-image: url("https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/J70T3LHQ2O.jpg");
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     background-attachment: fixed;
+}
+
+.logo {
+ font-family: 'Arial', cursive;
+}
+
+.logo a {
+ color: rgba(0,0,0,.9);
+}
+
+.logo a:hover,
+.logo a:active {
+ text-decoration: none;
+}
+
+h1, h2, h3 , h4, p, label{
+    color: #fff;
+}
