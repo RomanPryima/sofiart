@@ -103,9 +103,6 @@ class Review(models.Model):
 
     def save(self, query_dict=None):
         if query_dict:
-
-            import pdb
-            pdb.set_trace()
             self.text = query_dict.get('Message')
             self.email = query_dict.get('email')
             self.article = Article.objects.get(pk=query_dict.get('article'))

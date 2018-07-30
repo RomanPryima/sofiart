@@ -28,7 +28,8 @@ RUN apt update && \
 
 
 EXPOSE 80
-CMD python manage.py makemigrations && \
+CMD chmod -R 777 /opt/django/sofiart/media && \
+    python manage.py makemigrations && \
     python manage.py migrate && \
     service nginx start --uid www && \
     uwsgi sofiart_uwsgi.ini
